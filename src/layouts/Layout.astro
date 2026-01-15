@@ -1,5 +1,6 @@
 ---
 import Header from "../components/Header.astro";
+import { FloatingNotification } from "../components/FloatingNotification";
 
 interface Props {
   title: string;
@@ -20,6 +21,7 @@ const { title, description = "LastMinute Rent-a-Car - Your No1 rent a car in Cro
     <title>{title}</title>
   </head>
   <body>
+    <FloatingNotification client:load />
     <Header />
     <slot />
   </body>
