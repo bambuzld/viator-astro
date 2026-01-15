@@ -127,6 +127,67 @@
     "long": "MMMM d, yyyy",
     "monthYear": "MMMM yyyy"
   },
+  "specialOffersPage": {
+    "pageTitle": "Special Offers",
+    "pageDescription": "Take advantage of our exclusive offers and save on car rentals in Croatia.",
+    "metaDescription": "Discover special car rental offers - Black Friday discounts, summer deals, weekend specials, and loyalty programs.",
+    "filterAll": "All Offers",
+    "filterSeasonal": "Seasonal",
+    "filterDiscount": "Discounts",
+    "filterLoyalty": "Loyalty",
+    "sortBy": "Sort by",
+    "sortNewest": "Newest",
+    "sortDiscount": "Biggest discount",
+    "sortExpiring": "Expiring soon",
+    "validUntil": "Valid until",
+    "termsApply": "Terms apply",
+    "claimOffer": "Claim Offer",
+    "viewDetails": "View Details",
+    "offers": {
+      "blackFriday": {
+        "title": "Black Friday -20% Discount!",
+        "description": "The biggest sale of the year! Book any vehicle and get 20% off the total rental price.",
+        "terms": "Valid for bookings from Nov 20 to Nov 30. Minimum rental duration 3 days.",
+        "discount": "-20%",
+        "category": "discount"
+      },
+      "summerSpecial": {
+        "title": "Summer Special - Free GPS!",
+        "description": "Explore Croatia this summer! Get free GPS navigation with any rental longer than 5 days.",
+        "terms": "Valid for rentals from June 1 to August 31. Minimum rental duration 5 days.",
+        "discount": "Free GPS",
+        "category": "seasonal"
+      },
+      "weekendGetaway": {
+        "title": "Weekend Getaway 15% Off",
+        "description": "Perfect for short trips! Book a car for the weekend and save 15% on your rental.",
+        "terms": "Valid for Friday pickup and Monday return. Minimum 2 nights.",
+        "discount": "-15%",
+        "category": "discount"
+      },
+      "loyaltyBonus": {
+        "title": "Loyalty Bonus - Extra Day Free!",
+        "description": "Thank you for your loyalty! Get an extra day completely free with any rental of 7+ days.",
+        "terms": "Valid for loyalty program members. Minimum rental duration 7 days.",
+        "discount": "+1 day",
+        "category": "loyalty"
+      },
+      "earlyBird": {
+        "title": "Early Bird -10% Off",
+        "description": "Plan ahead and save! Book 30 days before pickup and get 10% off your rental.",
+        "terms": "Booking must be made at least 30 days before pickup date.",
+        "discount": "-10%",
+        "category": "discount"
+      },
+      "longTermRental": {
+        "title": "Long-Term Rental - Special Rates",
+        "description": "Need a car for an extended period? Get monthly rentals at the best prices.",
+        "terms": "Valid for rentals of 30+ days. Price depends on vehicle category.",
+        "discount": "Up to -30%",
+        "category": "seasonal"
+      }
+    }
+  },
   "fleet": {
     "pageTitle": "Our Fleet",
     "pageDescription": "Explore our diverse fleet of vehicles - from economical city cars to luxury sedans and spacious SUVs.",

@@ -127,6 +127,67 @@
     "long": "d. MMMM yyyy",
     "monthYear": "MMMM yyyy"
   },
+  "specialOffersPage": {
+    "pageTitle": "Sonderangebote",
+    "pageDescription": "Nutzen Sie unsere exklusiven Angebote und sparen Sie bei der Autovermietung in Kroatien.",
+    "metaDescription": "Entdecken Sie unsere Sonderangebote - Black Friday Rabatte, Sommeraktionen, Wochenendangebote und Treueprogramme.",
+    "filterAll": "Alle Angebote",
+    "filterSeasonal": "Saisonal",
+    "filterDiscount": "Rabatte",
+    "filterLoyalty": "Treue",
+    "sortBy": "Sortieren nach",
+    "sortNewest": "Neueste",
+    "sortDiscount": "Größter Rabatt",
+    "sortExpiring": "Läuft bald ab",
+    "validUntil": "Gültig bis",
+    "termsApply": "Es gelten die Bedingungen",
+    "claimOffer": "Angebot nutzen",
+    "viewDetails": "Details ansehen",
+    "offers": {
+      "blackFriday": {
+        "title": "Black Friday -20% Rabatt!",
+        "description": "Der größte Sale des Jahres! Buchen Sie ein beliebiges Fahrzeug und erhalten Sie 20% Rabatt auf den Gesamtpreis.",
+        "terms": "Gültig für Buchungen vom 20. bis 30. November. Mindestmietdauer 3 Tage.",
+        "discount": "-20%",
+        "category": "discount"
+      },
+      "summerSpecial": {
+        "title": "Sommer-Spezial - Gratis GPS!",
+        "description": "Entdecken Sie Kroatien diesen Sommer! Gratis GPS-Navigation bei jeder Anmietung über 5 Tage.",
+        "terms": "Gültig für Anmietungen vom 1. Juni bis 31. August. Mindestmietdauer 5 Tage.",
+        "discount": "Gratis GPS",
+        "category": "seasonal"
+      },
+      "weekendGetaway": {
+        "title": "Wochenendausflug -15%",
+        "description": "Perfekt für Kurztrips! Buchen Sie ein Auto fürs Wochenende und sparen Sie 15%.",
+        "terms": "Gültig für Abholung am Freitag und Rückgabe am Montag. Mindestens 2 Nächte.",
+        "discount": "-15%",
+        "category": "discount"
+      },
+      "loyaltyBonus": {
+        "title": "Treue-Bonus - Zusätzlicher Tag gratis!",
+        "description": "Danke für Ihre Treue! Erhalten Sie einen zusätzlichen Tag gratis bei jeder Anmietung von 7+ Tagen.",
+        "terms": "Gültig für Mitglieder des Treueprogramms. Mindestmietdauer 7 Tage.",
+        "discount": "+1 Tag",
+        "category": "loyalty"
+      },
+      "earlyBird": {
+        "title": "Frühbucher -10%",
+        "description": "Planen Sie voraus und sparen Sie! Buchen Sie 30 Tage vor Abholung und erhalten Sie 10% Rabatt.",
+        "terms": "Buchung muss mindestens 30 Tage vor dem Abholdatum erfolgen.",
+        "discount": "-10%",
+        "category": "discount"
+      },
+      "longTermRental": {
+        "title": "Langzeitmiete - Sonderpreise",
+        "description": "Brauchen Sie ein Auto für längere Zeit? Erhalten Sie monatliche Anmietungen zu den besten Preisen.",
+        "terms": "Gültig für Anmietungen von 30+ Tagen. Preis abhängig von der Fahrzeugkategorie.",
+        "discount": "Bis zu -30%",
+        "category": "seasonal"
+      }
+    }
+  },
   "fleet": {
     "pageTitle": "Unsere Flotte",
     "pageDescription": "Entdecken Sie unsere vielfältige Fahrzeugflotte - von sparsamen Stadtautos bis zu Luxuslimousinen und geräumigen SUVs.",

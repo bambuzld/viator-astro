@@ -127,6 +127,67 @@
     "long": "d MMMM yyyy",
     "monthYear": "MMMM yyyy"
   },
+  "specialOffersPage": {
+    "pageTitle": "Offres Spéciales",
+    "pageDescription": "Profitez de nos offres exclusives et économisez sur la location de voitures en Croatie.",
+    "metaDescription": "Découvrez nos offres spéciales de location - réductions Black Friday, offres d'été, spéciales week-end et programmes de fidélité.",
+    "filterAll": "Toutes les offres",
+    "filterSeasonal": "Saisonnières",
+    "filterDiscount": "Réductions",
+    "filterLoyalty": "Fidélité",
+    "sortBy": "Trier par",
+    "sortNewest": "Plus récentes",
+    "sortDiscount": "Plus grande réduction",
+    "sortExpiring": "Expire bientôt",
+    "validUntil": "Valable jusqu'au",
+    "termsApply": "Conditions applicables",
+    "claimOffer": "Profiter de l'offre",
+    "viewDetails": "Voir les détails",
+    "offers": {
+      "blackFriday": {
+        "title": "Black Friday -20% de réduction !",
+        "description": "La plus grande vente de l'année ! Réservez n'importe quel véhicule et obtenez 20% de réduction sur le prix total.",
+        "terms": "Valable pour les réservations du 20 au 30 novembre. Durée minimale de location 3 jours.",
+        "discount": "-20%",
+        "category": "discount"
+      },
+      "summerSpecial": {
+        "title": "Spécial été - GPS gratuit !",
+        "description": "Explorez la Croatie cet été ! GPS gratuit pour toute location de plus de 5 jours.",
+        "terms": "Valable pour les locations du 1er juin au 31 août. Durée minimale de location 5 jours.",
+        "discount": "GPS gratuit",
+        "category": "seasonal"
+      },
+      "weekendGetaway": {
+        "title": "Escapade week-end -15%",
+        "description": "Parfait pour les courts séjours ! Réservez pour le week-end et économisez 15%.",
+        "terms": "Valable pour prise en charge le vendredi et retour le lundi. Minimum 2 nuits.",
+        "discount": "-15%",
+        "category": "discount"
+      },
+      "loyaltyBonus": {
+        "title": "Bonus fidélité - Journée supplémentaire gratuite !",
+        "description": "Merci pour votre fidélité ! Obtenez une journée supplémentaire gratuite pour toute location de 7+ jours.",
+        "terms": "Valable pour les membres du programme de fidélité. Durée minimale de location 7 jours.",
+        "discount": "+1 jour",
+        "category": "loyalty"
+      },
+      "earlyBird": {
+        "title": "Réservation anticipée -10%",
+        "description": "Planifiez à l'avance et économisez ! Réservez 30 jours avant et obtenez 10% de réduction.",
+        "terms": "La réservation doit être effectuée au moins 30 jours avant la date de prise en charge.",
+        "discount": "-10%",
+        "category": "discount"
+      },
+      "longTermRental": {
+        "title": "Location longue durée - Tarifs spéciaux",
+        "description": "Besoin d'une voiture pour une période prolongée ? Obtenez des locations mensuelles aux meilleurs prix.",
+        "terms": "Valable pour les locations de 30+ jours. Le prix dépend de la catégorie du véhicule.",
+        "discount": "Jusqu'à -30%",
+        "category": "seasonal"
+      }
+    }
+  },
   "fleet": {
     "pageTitle": "Notre Flotte",
     "pageDescription": "Découvrez notre flotte diversifiée de véhicules - des citadines économiques aux berlines de luxe et SUV spacieux.",

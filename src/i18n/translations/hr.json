@@ -127,6 +127,67 @@
     "long": "d. MMMM yyyy.",
     "monthYear": "MMMM yyyy"
   },
+  "specialOffersPage": {
+    "pageTitle": "Posebne ponude",
+    "pageDescription": "Iskoristite naše ekskluzivne ponude i uštedite na najmu vozila u Hrvatskoj.",
+    "metaDescription": "Otkrijte posebne ponude za najam vozila - Black Friday popusti, ljetne akcije, vikend ponude i programi vjernosti.",
+    "filterAll": "Sve ponude",
+    "filterSeasonal": "Sezonske",
+    "filterDiscount": "Popusti",
+    "filterLoyalty": "Vjernost",
+    "sortBy": "Sortiraj po",
+    "sortNewest": "Najnovije",
+    "sortDiscount": "Najveći popust",
+    "sortExpiring": "Uskoro istječe",
+    "validUntil": "Vrijedi do",
+    "termsApply": "Primjenjuju se uvjeti",
+    "claimOffer": "Iskoristi ponudu",
+    "viewDetails": "Pogledaj detalje",
+    "offers": {
+      "blackFriday": {
+        "title": "Black Friday -20% popusta!",
+        "description": "Najveća akcija godine! Rezervirajte bilo koje vozilo i ostvarite 20% popusta na ukupnu cijenu najma.",
+        "terms": "Vrijedi za rezervacije od 20.11. do 30.11. Minimalno trajanje najma 3 dana.",
+        "discount": "-20%",
+        "category": "discount"
+      },
+      "summerSpecial": {
+        "title": "Ljetna ponuda - Besplatan GPS!",
+        "description": "Istražite Hrvatsku ovog ljeta! Uz svaki najam duži od 5 dana dobivate GPS navigaciju besplatno.",
+        "terms": "Vrijedi za najam od 01.06. do 31.08. Minimalno trajanje najma 5 dana.",
+        "discount": "Gratis GPS",
+        "category": "seasonal"
+      },
+      "weekendGetaway": {
+        "title": "Vikend bijeg 15% popusta",
+        "description": "Savršeno za kratka putovanja! Rezervirajte vozilo za vikend i uštedite 15% na najam.",
+        "terms": "Vrijedi za preuzimanje petkom i povrat ponedjeljkom. Minimalno 2 noćenja.",
+        "discount": "-15%",
+        "category": "discount"
+      },
+      "loyaltyBonus": {
+        "title": "Bonus vjernosti - Dodatni dan besplatno!",
+        "description": "Hvala vam na vjernosti! Uz svaki najam od 7+ dana dobivate dodatni dan potpuno besplatno.",
+        "terms": "Vrijedi za članove programa vjernosti. Minimalno trajanje najma 7 dana.",
+        "discount": "+1 dan",
+        "category": "loyalty"
+      },
+      "earlyBird": {
+        "title": "Rana rezervacija -10%",
+        "description": "Planirajte unaprijed i uštedite! Rezervirajte 30 dana prije preuzimanja i ostvarite 10% popusta.",
+        "terms": "Rezervacija mora biti obavljena minimalno 30 dana prije datuma preuzimanja.",
+        "discount": "-10%",
+        "category": "discount"
+      },
+      "longTermRental": {
+        "title": "Dugoročni najam - Posebne cijene",
+        "description": "Trebate vozilo na duže vrijeme? Ponudite si mjesečni najam po najpovoljnijim cijenama.",
+        "terms": "Vrijedi za najam od 30+ dana. Cijena ovisi o kategoriji vozila.",
+        "discount": "Do -30%",
+        "category": "seasonal"
+      }
+    }
+  },
   "fleet": {
     "pageTitle": "Vozni park",
     "pageDescription": "Istražite našu raznovrsnu flotu vozila - od ekonomičnih gradskih automobila do luksuznih limuzina i prostranih SUV-ova.",
