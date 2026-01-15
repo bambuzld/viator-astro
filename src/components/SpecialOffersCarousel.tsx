@@ -4,6 +4,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  CarouselDots,
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -103,6 +104,7 @@ export function SpecialOffersCarousel() {
         <CarouselPrevious className="-left-4 lg:-left-12 bg-white shadow-md hover:bg-gray-50" />
         <CarouselNext className="-right-4 lg:-right-12 bg-white shadow-md hover:bg-gray-50" />
       </div>
+      <CarouselDots />
     </Carousel>
   );
 }
