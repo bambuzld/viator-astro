@@ -1,6 +1,7 @@
 ---
 // Header Navigation Component - US-004
 // Static HTML component with responsive navigation
+import { LanguageSelector } from "./LanguageSelector";
 ---
 
 <header class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -46,6 +47,9 @@
 
     <!-- Actions -->
     <div class="flex items-center space-x-4">
+      <!-- Language Selector (client:load for immediate interactivity) -->
+      <LanguageSelector client:load />
+
       <!-- Manage Booking Button (Primary Action) -->
       <a
         href="/manage-booking"
