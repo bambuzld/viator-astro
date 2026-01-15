@@ -298,5 +298,91 @@
         "type": "airport"
       }
     }
+  },
+  "customerSupport": {
+    "pageTitle": "Kundendienst",
+    "pageDescription": "Wie können wir Ihnen helfen? Unser Support-Team ist 24/7 für Sie da.",
+    "metaDescription": "Erhalten Sie Hilfe bei Ihrer Autovermietung. Kontaktieren Sie unser Support-Team per Telefon, E-Mail oder besuchen Sie unsere Filialen.",
+    "faqTitle": "Häufig Gestellte Fragen",
+    "contact": {
+      "phone": {
+        "title": "Rufen Sie uns an",
+        "description": "Sprechen Sie mit unserem Support-Team für dringende Hilfe und Anfragen.",
+        "hours": "24/7 erreichbar"
+      },
+      "email": {
+        "title": "Schreiben Sie uns",
+        "description": "Senden Sie uns eine Nachricht und wir antworten so schnell wie möglich.",
+        "responseTime": "Antwort innerhalb von 24 Stunden"
+      },
+      "office": {
+        "title": "Besuchen Sie uns",
+        "description": "Kommen Sie in eine unserer Filialen in Kroatien.",
+        "viewOffices": "Filialen ansehen",
+        "locations": "8 Standorte in Kroatien"
+      }
+    },
+    "emergency": {
+      "title": "Notfall-Pannenhilfe",
+      "description": "Probleme mit Ihrem Fahrzeug? Unsere Pannenhilfe ist 24/7 für alle Notfälle verfügbar."
+    },
+    "faqs": {
+      "cancellation": {
+        "question": "Wie kann ich meine Reservierung stornieren?",
+        "answer": "Sie können Ihre Reservierung kostenlos bis zu 48 Stunden vor der Abholung stornieren. Melden Sie sich bei Ihrem Konto an oder kontaktieren Sie uns telefonisch oder per E-Mail mit Ihrer Buchungsnummer."
+      },
+      "requirements": {
+        "question": "Was sind die Voraussetzungen für die Anmietung eines Autos?",
+        "answer": "Sie müssen mindestens 21 Jahre alt sein, einen gültigen Führerschein (mindestens 1 Jahr) und eine Kreditkarte auf den Namen des Hauptfahrers besitzen."
+      },
+      "insurance": {
+        "question": "Welche Versicherung ist enthalten?",
+        "answer": "Alle Anmietungen beinhalten eine grundlegende Kollisions- und Diebstahlversicherung. Zusätzliche Optionen wie Vollversicherung ohne Selbstbeteiligung sind bei der Buchung verfügbar."
+      },
+      "fuel": {
+        "question": "Was ist die Tankpolitik?",
+        "answer": "Wir wenden eine Voll-zu-Voll-Politik an. Sie erhalten das Fahrzeug mit vollem Tank und geben es mit vollem Tank zurück, um zusätzliche Kosten zu vermeiden."
+      },
+      "modification": {
+        "question": "Kann ich meine Reservierung ändern?",
+        "answer": "Ja, Sie können Daten und Buchungsdetails bis zu 24 Stunden vor der Abholung ohne zusätzliche Kosten ändern, vorbehaltlich der Verfügbarkeit."
+      },
+      "documents": {
+        "question": "Welche Dokumente benötige ich für die Fahrzeugabholung?",
+        "answer": "Sie benötigen einen gültigen Führerschein, Reisepass oder Personalausweis und eine Kreditkarte auf den Namen des Hauptfahrers für die Kaution."
+      }
+    },
+    "form": {
+      "title": "Anfrage senden",
+      "name": "Vollständiger Name",
+      "namePlaceholder": "Ihr vollständiger Name",
+      "email": "E-Mail-Adresse",
+      "emailPlaceholder": "ihre@email.com",
+      "bookingReference": "Buchungsreferenz (optional)",
+      "bookingReferencePlaceholder": "z.B. LM-123456",
+      "subject": "Betreff",
+      "subjectPlaceholder": "Betreff auswählen",
+      "subjects": {
+        "booking": "Buchungsfrage",
+        "modification": "Buchungsänderung",
+        "cancellation": "Stornierung",
+        "complaint": "Beschwerde",
+        "feedback": "Feedback",
+        "other": "Sonstiges"
+      },
+      "message": "Nachricht",
+      "messagePlaceholder": "Beschreiben Sie Ihre Anfrage...",
+      "submit": "Nachricht senden",
+      "sending": "Wird gesendet...",
+      "successTitle": "Nachricht gesendet!",
+      "successMessage": "Vielen Dank für Ihre Nachricht. Unser Team wird Ihnen schnellstmöglich antworten.",
+      "errors": {
+        "nameRequired": "Name ist erforderlich",
+        "emailRequired": "E-Mail ist erforderlich",
+        "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+        "subjectRequired": "Bitte wählen Sie einen Betreff",
+        "messageRequired": "Nachricht ist erforderlich"
+      }
+    }
   }
 }

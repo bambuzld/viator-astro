@@ -298,5 +298,91 @@
         "type": "airport"
       }
     }
+  },
+  "customerSupport": {
+    "pageTitle": "Korisnička podrška",
+    "pageDescription": "Kako vam možemo pomoći? Naš tim za podršku je tu za vas 24/7.",
+    "metaDescription": "Zatražite pomoć s najmom vozila. Kontaktirajte naš tim za podršku telefonom, e-mailom ili posjetite naše poslovnice.",
+    "faqTitle": "Česta pitanja",
+    "contact": {
+      "phone": {
+        "title": "Nazovite nas",
+        "description": "Razgovarajte s našim timom za podršku za hitnu pomoć i upite.",
+        "hours": "Dostupno 24/7"
+      },
+      "email": {
+        "title": "Pošaljite e-mail",
+        "description": "Pošaljite nam poruku i odgovorit ćemo što je prije moguće.",
+        "responseTime": "Odgovor unutar 24 sata"
+      },
+      "office": {
+        "title": "Posjetite nas",
+        "description": "Dođite u jednu od naših poslovnica diljem Hrvatske.",
+        "viewOffices": "Pogledajte poslovnice",
+        "locations": "8 lokacija diljem Hrvatske"
+      }
+    },
+    "emergency": {
+      "title": "Hitna pomoć na cesti",
+      "description": "Imate problema s vozilom? Naša služba pomoći na cesti dostupna je 24/7 za sve hitne situacije."
+    },
+    "faqs": {
+      "cancellation": {
+        "question": "Kako mogu otkazati rezervaciju?",
+        "answer": "Rezervaciju možete otkazati besplatno do 48 sati prije preuzimanja. Prijavite se na svoj račun ili nas kontaktirajte telefonom ili e-mailom uz broj rezervacije."
+      },
+      "requirements": {
+        "question": "Koji su zahtjevi za najam vozila?",
+        "answer": "Morate imati najmanje 21 godinu, valjanu vozačku dozvolu (minimalno 1 godinu) i kreditnu karticu na ime glavnog vozača."
+      },
+      "insurance": {
+        "question": "Kakvo je osiguranje uključeno?",
+        "answer": "Svi najmovi uključuju osnovno osiguranje od štete i krađe. Dodatne opcije poput potpunog osiguranja bez franšize dostupne su prilikom rezervacije."
+      },
+      "fuel": {
+        "question": "Kakva je politika goriva?",
+        "answer": "Primjenjujemo politiku pun-pun. Vozilo primate s punim spremnikom i vraćate ga s punim spremnikom kako biste izbjegli dodatne naknade."
+      },
+      "modification": {
+        "question": "Mogu li izmijeniti svoju rezervaciju?",
+        "answer": "Da, možete izmijeniti datume i detalje rezervacije do 24 sata prije preuzimanja bez dodatnih naknada, ovisno o dostupnosti."
+      },
+      "documents": {
+        "question": "Koji dokumenti su mi potrebni za preuzimanje vozila?",
+        "answer": "Trebate valjanu vozačku dozvolu, putovnicu ili osobnu iskaznicu te kreditnu karticu na ime glavnog vozača za depozit."
+      }
+    },
+    "form": {
+      "title": "Pošaljite upit",
+      "name": "Ime i prezime",
+      "namePlaceholder": "Vaše ime i prezime",
+      "email": "E-mail adresa",
+      "emailPlaceholder": "vasa@email.com",
+      "bookingReference": "Broj rezervacije (opcionalno)",
+      "bookingReferencePlaceholder": "npr. LM-123456",
+      "subject": "Tema",
+      "subjectPlaceholder": "Odaberite temu",
+      "subjects": {
+        "booking": "Pitanje o rezervaciji",
+        "modification": "Izmjena rezervacije",
+        "cancellation": "Otkazivanje",
+        "complaint": "Pritužba",
+        "feedback": "Povratna informacija",
+        "other": "Ostalo"
+      },
+      "message": "Poruka",
+      "messagePlaceholder": "Opišite svoj upit...",
+      "submit": "Pošalji poruku",
+      "sending": "Slanje...",
+      "successTitle": "Poruka poslana!",
+      "successMessage": "Hvala vam na poruci. Naš tim će vam odgovoriti u najkraćem mogućem roku.",
+      "errors": {
+        "nameRequired": "Ime je obavezno",
+        "emailRequired": "E-mail je obavezan",
+        "emailInvalid": "Unesite valjanu e-mail adresu",
+        "subjectRequired": "Odaberite temu",
+        "messageRequired": "Poruka je obavezna"
+      }
+    }
   }
 }

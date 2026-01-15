@@ -298,5 +298,91 @@
         "type": "airport"
       }
     }
+  },
+  "customerSupport": {
+    "pageTitle": "Customer Support",
+    "pageDescription": "How can we help you? Our support team is here for you 24/7.",
+    "metaDescription": "Get help with your car rental. Contact our customer support team via phone, email, or visit our offices.",
+    "faqTitle": "Frequently Asked Questions",
+    "contact": {
+      "phone": {
+        "title": "Call Us",
+        "description": "Speak with our support team for urgent assistance and inquiries.",
+        "hours": "Available 24/7"
+      },
+      "email": {
+        "title": "Email Us",
+        "description": "Send us a message and we'll respond as soon as possible.",
+        "responseTime": "Response within 24 hours"
+      },
+      "office": {
+        "title": "Visit Us",
+        "description": "Come to one of our offices across Croatia.",
+        "viewOffices": "View Offices",
+        "locations": "8 locations across Croatia"
+      }
+    },
+    "emergency": {
+      "title": "Emergency Roadside Assistance",
+      "description": "Having trouble with your vehicle? Our roadside assistance is available 24/7 for all emergencies."
+    },
+    "faqs": {
+      "cancellation": {
+        "question": "How can I cancel my reservation?",
+        "answer": "You can cancel your reservation for free up to 48 hours before pickup. Log in to your account or contact us by phone or email with your booking number."
+      },
+      "requirements": {
+        "question": "What are the requirements for renting a car?",
+        "answer": "You must be at least 21 years old, have a valid driver's license (minimum 1 year), and a credit card in the main driver's name."
+      },
+      "insurance": {
+        "question": "What insurance is included?",
+        "answer": "All rentals include basic collision damage and theft protection. Additional options like full insurance with zero deductible are available during booking."
+      },
+      "fuel": {
+        "question": "What is the fuel policy?",
+        "answer": "We apply a full-to-full policy. You receive the vehicle with a full tank and return it with a full tank to avoid additional charges."
+      },
+      "modification": {
+        "question": "Can I modify my reservation?",
+        "answer": "Yes, you can modify dates and booking details up to 24 hours before pickup at no additional charge, subject to availability."
+      },
+      "documents": {
+        "question": "What documents do I need for vehicle pickup?",
+        "answer": "You need a valid driver's license, passport or ID card, and a credit card in the main driver's name for the deposit."
+      }
+    },
+    "form": {
+      "title": "Send an Inquiry",
+      "name": "Full Name",
+      "namePlaceholder": "Your full name",
+      "email": "Email Address",
+      "emailPlaceholder": "your@email.com",
+      "bookingReference": "Booking Reference (optional)",
+      "bookingReferencePlaceholder": "e.g. LM-123456",
+      "subject": "Subject",
+      "subjectPlaceholder": "Select a subject",
+      "subjects": {
+        "booking": "Booking Question",
+        "modification": "Booking Modification",
+        "cancellation": "Cancellation",
+        "complaint": "Complaint",
+        "feedback": "Feedback",
+        "other": "Other"
+      },
+      "message": "Message",
+      "messagePlaceholder": "Describe your inquiry...",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "successTitle": "Message Sent!",
+      "successMessage": "Thank you for your message. Our team will respond to you as soon as possible.",
+      "errors": {
+        "nameRequired": "Name is required",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Please enter a valid email address",
+        "subjectRequired": "Please select a subject",
+        "messageRequired": "Message is required"
+      }
+    }
   }
 }

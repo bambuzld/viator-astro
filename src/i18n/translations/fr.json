@@ -298,5 +298,91 @@
         "type": "airport"
       }
     }
+  },
+  "customerSupport": {
+    "pageTitle": "Service Client",
+    "pageDescription": "Comment pouvons-nous vous aider ? Notre équipe de support est là pour vous 24h/24, 7j/7.",
+    "metaDescription": "Obtenez de l'aide pour votre location de voiture. Contactez notre équipe de support par téléphone, e-mail ou visitez nos agences.",
+    "faqTitle": "Questions Fréquentes",
+    "contact": {
+      "phone": {
+        "title": "Appelez-nous",
+        "description": "Parlez avec notre équipe de support pour une assistance urgente.",
+        "hours": "Disponible 24h/24"
+      },
+      "email": {
+        "title": "Écrivez-nous",
+        "description": "Envoyez-nous un message et nous vous répondrons dès que possible.",
+        "responseTime": "Réponse sous 24 heures"
+      },
+      "office": {
+        "title": "Visitez-nous",
+        "description": "Rendez-vous dans l'une de nos agences en Croatie.",
+        "viewOffices": "Voir les agences",
+        "locations": "8 emplacements en Croatie"
+      }
+    },
+    "emergency": {
+      "title": "Assistance Routière d'Urgence",
+      "description": "Des problèmes avec votre véhicule ? Notre assistance routière est disponible 24h/24 pour toutes les urgences."
+    },
+    "faqs": {
+      "cancellation": {
+        "question": "Comment puis-je annuler ma réservation ?",
+        "answer": "Vous pouvez annuler gratuitement votre réservation jusqu'à 48 heures avant la prise en charge. Connectez-vous à votre compte ou contactez-nous par téléphone ou e-mail avec votre numéro de réservation."
+      },
+      "requirements": {
+        "question": "Quelles sont les conditions pour louer une voiture ?",
+        "answer": "Vous devez avoir au moins 21 ans, un permis de conduire valide (minimum 1 an) et une carte de crédit au nom du conducteur principal."
+      },
+      "insurance": {
+        "question": "Quelle assurance est incluse ?",
+        "answer": "Toutes les locations incluent une protection de base contre les dommages et le vol. Des options supplémentaires comme l'assurance complète sans franchise sont disponibles lors de la réservation."
+      },
+      "fuel": {
+        "question": "Quelle est la politique de carburant ?",
+        "answer": "Nous appliquons une politique plein-plein. Vous recevez le véhicule avec un réservoir plein et le rendez avec un réservoir plein pour éviter des frais supplémentaires."
+      },
+      "modification": {
+        "question": "Puis-je modifier ma réservation ?",
+        "answer": "Oui, vous pouvez modifier les dates et les détails de la réservation jusqu'à 24 heures avant la prise en charge sans frais supplémentaires, sous réserve de disponibilité."
+      },
+      "documents": {
+        "question": "Quels documents sont nécessaires pour récupérer le véhicule ?",
+        "answer": "Vous avez besoin d'un permis de conduire valide, d'un passeport ou d'une carte d'identité, et d'une carte de crédit au nom du conducteur principal pour le dépôt."
+      }
+    },
+    "form": {
+      "title": "Envoyer une demande",
+      "name": "Nom complet",
+      "namePlaceholder": "Votre nom complet",
+      "email": "Adresse e-mail",
+      "emailPlaceholder": "votre@email.com",
+      "bookingReference": "Référence de réservation (facultatif)",
+      "bookingReferencePlaceholder": "ex. LM-123456",
+      "subject": "Sujet",
+      "subjectPlaceholder": "Sélectionnez un sujet",
+      "subjects": {
+        "booking": "Question sur la réservation",
+        "modification": "Modification de réservation",
+        "cancellation": "Annulation",
+        "complaint": "Réclamation",
+        "feedback": "Commentaires",
+        "other": "Autre"
+      },
+      "message": "Message",
+      "messagePlaceholder": "Décrivez votre demande...",
+      "submit": "Envoyer le message",
+      "sending": "Envoi en cours...",
+      "successTitle": "Message envoyé !",
+      "successMessage": "Merci pour votre message. Notre équipe vous répondra dans les plus brefs délais.",
+      "errors": {
+        "nameRequired": "Le nom est requis",
+        "emailRequired": "L'e-mail est requis",
+        "emailInvalid": "Veuillez entrer une adresse e-mail valide",
+        "subjectRequired": "Veuillez sélectionner un sujet",
+        "messageRequired": "Le message est requis"
+      }
+    }
   }
 }
