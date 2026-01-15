@@ -1,0 +1,77 @@
+---
+const leftColumnBenefits = [
+  "No hidden fees - transparent pricing",
+  "Free cancellation up to 48 hours before pickup",
+  "24/7 roadside assistance included",
+  "Unlimited mileage on all rentals",
+  "Clean and well-maintained vehicles",
+];
+
+const rightColumnBenefits = [
+  "Quick and easy online booking",
+  "Flexible pickup and return locations",
+  "Competitive rates guaranteed",
+  "No credit card fees",
+  "Friendly multilingual staff",
+];
+---
+
+<section class="py-16 md:py-24 bg-gray-900">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12 md:mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        Why rent with Last Minute?
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-4xl mx-auto">
+      <ul class="space-y-4">
+        {
+          leftColumnBenefits.map((benefit) => (
+            <li class="flex items-start gap-3">
+              <svg
+                class="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+              <span class="text-gray-300 text-lg">{benefit}</span>
+            </li>
+          ))
+        }
+      </ul>
+
+      <ul class="space-y-4">
+        {
+          rightColumnBenefits.map((benefit) => (
+            <li class="flex items-start gap-3">
+              <svg
+                class="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+              <span class="text-gray-300 text-lg">{benefit}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>
