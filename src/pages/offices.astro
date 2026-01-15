@@ -1,0 +1,13 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { OfficesPage } from "../components/OfficesPage";
+---
+
+<Layout
+  title="LastMinute Rent-a-Car | Offices"
+  description="Find LastMinute Rent-a-Car offices in Croatia - Zagreb, Split, Dubrovnik, Zadar, Pula, Rijeka airports and city centers. Contact information and working hours."
+>
+  <main>
+    <OfficesPage client:load />
+  </main>
+</Layout>

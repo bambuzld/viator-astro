@@ -212,5 +212,91 @@
     "perDay": "/day",
     "viewDetails": "View Details",
     "bookNow": "Book Now"
+  },
+  "officesPage": {
+    "pageTitle": "Our Offices",
+    "pageDescription": "Find the nearest office for vehicle pickup and return. With locations across Croatia, we're always at your service.",
+    "metaDescription": "Find LastMinute Rent-a-Car offices in Croatia - Zagreb, Split, Dubrovnik, Zadar, Pula, Rijeka and more locations.",
+    "filterAll": "All Offices",
+    "filterAirport": "Airports",
+    "filterCity": "City Centers",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "workingHours": "Working Hours",
+    "getDirections": "Get Directions",
+    "contactOffice": "Contact Office",
+    "services": "Services",
+    "servicesAvailable": {
+      "airportPickup": "Airport pickup",
+      "afterHoursReturn": "After-hours return",
+      "childSeats": "Child seats",
+      "gpsNavigation": "GPS navigation",
+      "additionalDriver": "Additional driver",
+      "fullInsurance": "Full insurance"
+    },
+    "weekdays": "Mon - Fri",
+    "saturday": "Saturday",
+    "sunday": "Sunday",
+    "closed": "Closed",
+    "open24h": "Open 24h",
+    "offices": {
+      "zagrebAirport": {
+        "name": "Zagreb Airport",
+        "address": "Ulica Rudolfa Fizira 21, 10150 Zagreb",
+        "phone": "+385 1 6265 222",
+        "email": "zagreb.airport@lastminute-rentacar.hr",
+        "type": "airport"
+      },
+      "zagrebCity": {
+        "name": "Zagreb City Center",
+        "address": "Ilica 123, 10000 Zagreb",
+        "phone": "+385 1 4567 890",
+        "email": "zagreb.city@lastminute-rentacar.hr",
+        "type": "city"
+      },
+      "splitAirport": {
+        "name": "Split Airport",
+        "address": "Cesta dr. Franje Tuđmana 1270, 21217 Kaštel Štafilić",
+        "phone": "+385 21 895 111",
+        "email": "split.airport@lastminute-rentacar.hr",
+        "type": "airport"
+      },
+      "splitCity": {
+        "name": "Split City Center",
+        "address": "Obala Hrvatskog narodnog preporoda 25, 21000 Split",
+        "phone": "+385 21 345 678",
+        "email": "split.city@lastminute-rentacar.hr",
+        "type": "city"
+      },
+      "dubrovnikAirport": {
+        "name": "Dubrovnik Airport",
+        "address": "Dobrota 24, 20213 Čilipi",
+        "phone": "+385 20 773 100",
+        "email": "dubrovnik.airport@lastminute-rentacar.hr",
+        "type": "airport"
+      },
+      "zadarAirport": {
+        "name": "Zadar Airport",
+        "address": "Ulica I/1, 23222 Zemunik Donji",
+        "phone": "+385 23 313 311",
+        "email": "zadar.airport@lastminute-rentacar.hr",
+        "type": "airport"
+      },
+      "pulaAirport": {
+        "name": "Pula Airport",
+        "address": "Valtursko polje 210, 52100 Pula",
+        "phone": "+385 52 530 105",
+        "email": "pula.airport@lastminute-rentacar.hr",
+        "type": "airport"
+      },
+      "rijekaAirport": {
+        "name": "Rijeka Airport",
+        "address": "Hamec 1, 51513 Omišalj",
+        "phone": "+385 51 841 040",
+        "email": "rijeka.airport@lastminute-rentacar.hr",
+        "type": "airport"
+      }
+    }
   }
 }
