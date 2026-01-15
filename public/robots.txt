@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lastminute-rentacar.hr/sitemap-index.xml

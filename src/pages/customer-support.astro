@@ -1,11 +1,40 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { CustomerSupportPage } from "../components/CustomerSupportPage";
+
+const faqItems = [
+  {
+    question: "How can I cancel my reservation?",
+    answer: "You can cancel your reservation for free up to 48 hours before pickup. Log in to your account or contact us by phone or email with your booking number."
+  },
+  {
+    question: "What are the requirements for renting a car?",
+    answer: "You must be at least 21 years old, have a valid driver's license (minimum 1 year), and a credit card in the main driver's name."
+  },
+  {
+    question: "What insurance is included?",
+    answer: "All rentals include basic collision damage and theft protection. Additional options like full insurance with zero deductible are available during booking."
+  },
+  {
+    question: "What is the fuel policy?",
+    answer: "We apply a full-to-full policy. You receive the vehicle with a full tank and return it with a full tank to avoid additional charges."
+  },
+  {
+    question: "Can I modify my reservation?",
+    answer: "Yes, you can modify dates and booking details up to 24 hours before pickup at no additional charge, subject to availability."
+  },
+  {
+    question: "What documents do I need for vehicle pickup?",
+    answer: "You need a valid driver's license, passport or ID card, and a credit card in the main driver's name for the deposit."
+  }
+];
 ---
 
 <Layout
   title="LastMinute Rent-a-Car | Customer Support"
   description="Get help with your car rental. Contact our customer support team via phone, email, or visit our offices. Find answers to frequently asked questions."
+  schemaType="faqPage"
+  faqItems={faqItems}
 >
   <main>
     <CustomerSupportPage client:load />

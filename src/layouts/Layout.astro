@@ -1,14 +1,31 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import SEOSchema from "../components/SEOSchema.astro";
 import { FloatingNotification } from "../components/FloatingNotification";
 
 interface Props {
   title: string;
   description?: string;
+  ogImage?: string;
+  ogType?: string;
+  noIndex?: boolean;
+  schemaType?: "organization" | "localBusiness" | "faqPage" | "product";
+  faqItems?: { question: string; answer: string }[];
 }
 
-const { title, description = "LastMinute Rent-a-Car - Your No1 rent a car in Croatia" } = Astro.props;
+const {
+  title,
+  description = "LastMinute Rent-a-Car - Your No1 rent a car in Croatia. Affordable car rentals with offices in Zagreb, Split, Dubrovnik, and more.",
+  ogImage = "/og-image.jpg",
+  ogType = "website",
+  noIndex = false,
+  schemaType = "organization",
+  faqItems = [],
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(ogImage, Astro.site);
 ---
 
 <!doctype html>
@@ -20,6 +37,39 @@ const { title, description = "LastMinute Rent-a-Car - Your No1 rent a car in Cro
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Robots -->
+    {noIndex ? (
+      <meta name="robots" content="noindex, nofollow" />
+    ) : (
+      <meta name="robots" content="index, follow" />
+    )}
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:site_name" content="LastMinute Rent-a-Car" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+
+    <!-- Additional SEO -->
+    <meta name="theme-color" content="#1e40af" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Structured Data -->
+    <SEOSchema type={schemaType} faqItems={faqItems} />
   </head>
   <body>
     <a
