@@ -1,0 +1,92 @@
+---
+const features = [
+  {
+    title: "A wide range of vehicles",
+    description:
+      "From compact city cars to spacious SUVs and luxury vehicles, we have the perfect car for every occasion and budget.",
+    linkText: "Vehicle fleet",
+    linkHref: "/fleet",
+  },
+  {
+    title: "Additional services",
+    description:
+      "Child seats, GPS navigation, additional drivers, and insurance options to make your journey comfortable and safe.",
+    linkText: "More informations",
+    linkHref: "/services",
+  },
+  {
+    title: "Branches in 6 airports",
+    description: "Zagreb, Split, Dubrovnik, Zadar, Pula, Rijeka",
+    linkText: "All offices",
+    linkHref: "/locations",
+  },
+];
+---
+
+<section class="py-16 md:py-24 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12 md:mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Simple and fast service
+      </h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        We make car rental easy with transparent pricing, quick pickup, and
+        exceptional customer support throughout your journey.
+      </p>
+    </div>
+
+    <div
+      class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8"
+    >
+      {
+        features.map((feature) => (
+          <div class="bg-gray-50 rounded-lg p-6 md:p-8 flex flex-col">
+            <div class="w-16 h-16 bg-gray-200 rounded-lg mb-6 flex items-center justify-center">
+              <svg
+                class="w-8 h-8 text-gray-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                />
+              </svg>
+            </div>
+
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">
+              {feature.title}
+            </h3>
+
+            <p class="text-gray-600 mb-6 flex-grow">{feature.description}</p>
+
+            <a
+              href={feature.linkHref}
+              class="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium transition-colors"
+            >
+              {feature.linkText}
+              <svg
+                class="w-4 h-4 ml-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
