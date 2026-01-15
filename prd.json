@@ -1,0 +1,444 @@
+{
+  "name": "LastMinute Rent-a-Car Web Application",
+  "branchName": "feature/lastminute-rent-a-car",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "Project Setup and Configuration",
+      "description": "As a developer, I want to set up the Astro.js project with React, Tailwind CSS, and shadcn/ui so that I have a solid foundation for building the application.",
+      "acceptanceCriteria": [
+        "Astro.js project is initialized with latest version",
+        "React integration is added and configured",
+        "Tailwind CSS is installed and configured with custom theme",
+        "shadcn/ui is initialized with required components (button, card, input, select, calendar, popover, dialog, checkbox, badge, separator)",
+        "Project structure follows the defined architecture",
+        "TypeScript is configured with proper types",
+        "Dependencies installed: react-hook-form, zod, @hookform/resolvers, lucide-react, date-fns"
+      ],
+      "priority": 1,
+      "passes": true,
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-002",
+      "title": "Design System and Theme Implementation",
+      "description": "As a designer, I want the application to follow a consistent design system so that the UI is cohesive and professional.",
+      "acceptanceCriteria": [
+        "Color palette is implemented in global.css with CSS variables",
+        "Primary color is vibrant blue (#2563eb)",
+        "Typography uses Inter or system fonts",
+        "Border radius is set to 0.5rem",
+        "All shadcn/ui components use the custom theme",
+        "Dark and light variants are properly defined"
+      ],
+      "priority": 1,
+      "passes": true,
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-003",
+      "title": "Layout Component",
+      "description": "As a user, I want a consistent page layout so that navigation and branding are uniform across all pages.",
+      "acceptanceCriteria": [
+        "Layout.astro wraps all pages",
+        "Proper HTML document structure with head and body",
+        "Meta tags are included for SEO",
+        "Global styles are imported",
+        "Slot for page content is implemented"
+      ],
+      "priority": 1,
+      "passes": true,
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-004",
+      "title": "Header Navigation",
+      "description": "As a user, I want a header with navigation links so that I can easily access different sections of the website.",
+      "acceptanceCriteria": [
+        "Logo displays 'LastMinute' branding",
+        "Navigation links: Fleet, Special Offers, Offices, Customer Support, Login",
+        "Manage booking button is prominently displayed as primary action",
+        "Header is responsive with hamburger menu on mobile",
+        "Navigation links are accessible with keyboard",
+        "Header is rendered as static HTML (no client directive)"
+      ],
+      "priority": 2,
+      "passes": true,
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-005",
+      "title": "Language Selector Modal",
+      "description": "As a user, I want to select my preferred language so that I can view the website in my native language.",
+      "acceptanceCriteria": [
+        "Language selector opens a modal dialog",
+        "Four language options: Hrvatski, English, French, Deutsche",
+        "Each language displays with its flag",
+        "Selected language is stored in localStorage",
+        "Language preference persists across sessions",
+        "Uses client:load directive for immediate interactivity"
+      ],
+      "priority": 2,
+      "passes": true,
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-006",
+      "title": "Floating Notification Bar",
+      "description": "As a user, I want to see important notifications that I can dismiss so that I stay informed without being annoyed.",
+      "acceptanceCriteria": [
+        "Notification bar displays at top of page",
+        "Shows message: 'Hey, this is floating notification! You can turn it on and off.'",
+        "Close/dismiss button is visible and functional",
+        "Dismissed state is remembered",
+        "Notification is accessible with proper ARIA labels"
+      ],
+      "priority": 3,
+      "passes": true,
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-007",
+      "title": "Hero Section",
+      "description": "As a user, I want to see an attractive hero section so that I understand what the company offers.",
+      "acceptanceCriteria": [
+        "Background uses black/dark gradient",
+        "Heading displays: 'Your No1 rent a car in Croatia title'",
+        "Heading is large, white, and centered",
+        "Booking form card is overlaid on the hero",
+        "Section is responsive on all screen sizes"
+      ],
+      "priority": 2,
+      "passes": true,
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-008",
+      "title": "Booking Form - Location Selection",
+      "description": "As a user, I want to select pick-up and drop-off locations so that I can specify where I need the car.",
+      "acceptanceCriteria": [
+        "Pick-up location field with search/autocomplete",
+        "Drop-off location field with search/autocomplete",
+        "Checkbox for 'Different return location'",
+        "When checkbox is unchecked, drop-off uses same location as pick-up",
+        "Locations include airport indicators",
+        "Form validates that location is selected"
+      ],
+      "priority": 2,
+      "passes": true,
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-009",
+      "title": "Booking Form - Date and Time Selection",
+      "description": "As a user, I want to select pick-up and return dates and times so that I can specify my rental period.",
+      "acceptanceCriteria": [
+        "Pick-up date picker using calendar component",
+        "Pick-up time dropdown selector",
+        "Return date picker using calendar component",
+        "Return time dropdown selector",
+        "Cannot select return date before pick-up date",
+        "Date format is localized based on language",
+        "Past dates are disabled"
+      ],
+      "priority": 2,
+      "passes": true,
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-010",
+      "title": "Booking Form - Submission and Validation",
+      "description": "As a user, I want to submit my booking search with validation so that I can find available cars.",
+      "acceptanceCriteria": [
+        "Show button (primary CTA) submits the form",
+        "Real-time validation with Zod schema",
+        "Clear error messages displayed in selected language",
+        "All required fields must be filled",
+        "Form uses React Hook Form for state management",
+        "Uses client:load directive for immediate hydration"
+      ],
+      "priority": 2,
+      "passes": true,
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-011",
+      "title": "Feature Cards Section",
+      "description": "As a user, I want to see the key features of the service so that I understand the benefits.",
+      "acceptanceCriteria": [
+        "Section heading: 'Simple and fast service'",
+        "Descriptive paragraph about the service",
+        "Three feature cards displayed in a row",
+        "Card 1: 'A wide range of vehicles' with description and 'Vehicle fleet' link",
+        "Card 2: 'Additional services' with description and 'More informations' link",
+        "Card 3: 'Branches in 6 airports' listing cities and 'All offices' link",
+        "Each card has an icon/image placeholder",
+        "Cards stack vertically on mobile",
+        "Rendered as static HTML (no client directive)"
+      ],
+      "priority": 3,
+      "passes": true,
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-012",
+      "title": "Special Offers Section",
+      "description": "As a user, I want to see special offers so that I can find discounts and deals.",
+      "acceptanceCriteria": [
+        "Section heading: 'Special offers'",
+        "Subtitle with 'Contact us' link",
+        "Offer cards displayed (2 visible minimum)",
+        "Carousel functionality for additional offers",
+        "Each card shows image of happy travelers",
+        "Offer titles displayed (e.g., 'Black friday -20% discount!')",
+        "Call-to-action on each card",
+        "Uses client:visible directive for lazy hydration"
+      ],
+      "priority": 3,
+      "passes": true,
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-013",
+      "title": "Image Carousel Component",
+      "description": "As a user, I want to navigate through multiple offers in a carousel so that I can see all available deals.",
+      "acceptanceCriteria": [
+        "Navigation arrows for previous/next",
+        "Dot indicators showing current position",
+        "Smooth transition animations",
+        "Touch/swipe support on mobile",
+        "Keyboard navigation support",
+        "Accessible with ARIA labels"
+      ],
+      "priority": 3,
+      "passes": true,
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-014",
+      "title": "Rental Stations Map Section",
+      "description": "As a user, I want to see rental station locations on a map so that I can find nearby offices.",
+      "acceptanceCriteria": [
+        "Section heading: 'Rental stations'",
+        "Description about branches across Croatia",
+        "Interactive map of Croatia showing locations",
+        "City name pills: Split, Zadar, Rijeka, Zagreb, Dubrovnik, Pula",
+        "Clicking city highlights location on map",
+        "Uses client:visible directive for lazy hydration"
+      ],
+      "priority": 3,
+      "passes": true,
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-015",
+      "title": "Why Rent Section",
+      "description": "As a user, I want to see the benefits of renting with LastMinute so that I feel confident in my choice.",
+      "acceptanceCriteria": [
+        "Dark background styling",
+        "Section heading: 'Why rent with Last Minute?'",
+        "Two columns of benefits with checkmark icons",
+        "Left column benefits listed",
+        "Right column benefits listed",
+        "Responsive layout on all screen sizes",
+        "Rendered as static HTML (no client directive)"
+      ],
+      "priority": 3,
+      "passes": true,
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-016",
+      "title": "Footer Component",
+      "description": "As a user, I want a footer with company information and links so that I can find additional resources.",
+      "acceptanceCriteria": [
+        "Company information displayed",
+        "Links to important pages",
+        "Social media icons with links",
+        "Copyright notice displayed",
+        "Footer is responsive",
+        "Links are accessible"
+      ],
+      "priority": 3,
+      "passes": true,
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-017",
+      "title": "Internationalization Setup",
+      "description": "As a developer, I want to implement i18n support so that the website can display content in multiple languages.",
+      "acceptanceCriteria": [
+        "Translation files created for Croatian, English, French, German",
+        "i18n utility functions in /src/lib/i18n.ts",
+        "Default language is Croatian (Hrvatski)",
+        "All UI text is translatable",
+        "Date formats are localized",
+        "Error messages are translated"
+      ],
+      "priority": 2,
+      "passes": true,
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-018",
+      "title": "Fleet Page",
+      "description": "As a user, I want to browse the vehicle fleet so that I can see available car options.",
+      "acceptanceCriteria": [
+        "Page accessible at /fleet route",
+        "Vehicle categories displayed",
+        "Vehicle cards with images and details",
+        "Responsive grid layout",
+        "SEO meta tags included"
+      ],
+      "priority": 4,
+      "passes": true,
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-019",
+      "title": "Special Offers Page",
+      "description": "As a user, I want to view all special offers so that I can find the best deals.",
+      "acceptanceCriteria": [
+        "Page accessible at /special-offers route",
+        "All offers displayed with details",
+        "Filter or sorting options",
+        "Responsive layout",
+        "SEO meta tags included"
+      ],
+      "priority": 4,
+      "passes": true,
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-020",
+      "title": "Offices Page",
+      "description": "As a user, I want to view all office locations so that I can find the nearest rental station.",
+      "acceptanceCriteria": [
+        "Page accessible at /offices route",
+        "List of all office locations",
+        "Address and contact information for each",
+        "Map integration if applicable",
+        "SEO meta tags included"
+      ],
+      "priority": 4,
+      "passes": true,
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-021",
+      "title": "Customer Support Page",
+      "description": "As a user, I want to access customer support information so that I can get help when needed.",
+      "acceptanceCriteria": [
+        "Page accessible at /customer-support route",
+        "Contact information displayed",
+        "FAQ section if applicable",
+        "Support form or chat option",
+        "SEO meta tags included"
+      ],
+      "priority": 4,
+      "passes": true,
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-022",
+      "title": "Responsive Design Implementation",
+      "description": "As a user, I want the website to work well on all devices so that I can use it on mobile, tablet, or desktop.",
+      "acceptanceCriteria": [
+        "Mobile-first CSS approach",
+        "Breakpoints: sm (640px), md (768px), lg (1024px), xl (1280px)",
+        "Hamburger menu on mobile",
+        "Booking form fields stack vertically on mobile",
+        "Feature cards single column on mobile",
+        "All interactive elements are touch-friendly",
+        "No horizontal scrolling on any screen size"
+      ],
+      "priority": 2,
+      "passes": true,
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-023",
+      "title": "Accessibility Implementation",
+      "description": "As a user with disabilities, I want the website to be accessible so that I can use it effectively.",
+      "acceptanceCriteria": [
+        "ARIA labels on all interactive elements",
+        "Keyboard navigation support throughout",
+        "Proper heading hierarchy (h1, h2, h3, etc.)",
+        "Alt text for all images",
+        "Focus indicators visible",
+        "Color contrast meets WCAG standards",
+        "Screen reader compatible"
+      ],
+      "priority": 2,
+      "passes": true,
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-024",
+      "title": "SEO Implementation",
+      "description": "As a marketer, I want the website to be SEO optimized so that it ranks well in search engines.",
+      "acceptanceCriteria": [
+        "Meta tags on each page (title, description)",
+        "Open Graph tags for social sharing",
+        "Structured data (Schema.org) for rental car business",
+        "Sitemap.xml generated",
+        "Canonical URLs set",
+        "Semantic HTML used throughout"
+      ],
+      "priority": 3,
+      "passes": true,
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-025",
+      "title": "Performance Optimization",
+      "description": "As a user, I want the website to load quickly so that I have a good experience.",
+      "acceptanceCriteria": [
+        "Images optimized using Astro's image optimization",
+        "Images below fold are lazy loaded",
+        "JavaScript bundle minimized",
+        "React used only for interactive components",
+        "Static HTML used where possible",
+        "Core Web Vitals targets met"
+      ],
+      "priority": 2,
+      "passes": true,
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-026",
+      "title": "API Integration Preparation",
+      "description": "As a developer, I want API utility functions prepared so that backend integration is straightforward.",
+      "acceptanceCriteria": [
+        "API utility file created at /src/lib/api.ts",
+        "Fetch wrapper functions implemented",
+        "Error handling utilities",
+        "Loading state management patterns",
+        "TypeScript interfaces for API responses",
+        "Ready for Symfony/API Platform backend connection"
+      ],
+      "priority": 4,
+      "passes": true,
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-027",
+      "title": "TypeScript Types Definition",
+      "description": "As a developer, I want TypeScript types defined so that the codebase is type-safe.",
+      "acceptanceCriteria": [
+        "Location interface defined",
+        "Booking interface defined",
+        "Language interface defined",
+        "Component prop types defined",
+        "API response types defined",
+        "Types exported from /src/lib/utils.ts or dedicated types file"
+      ],
+      "priority": 2,
+      "passes": true,
+      "completionNotes": "Completed by agent"
+    }
+  ],
+  "metadata": {
+    "updatedAt": "2026-01-15T19:19:42.107Z"
+  }
+}

@@ -1,0 +1,8 @@
+maxIterations = 20
+agent = "claude"
+tracker = "json"
+autoCommit = true
+subagentTracingDetail = "minimal"
+
+[agentOptions]
+[trackerOptions]
