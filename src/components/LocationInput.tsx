@@ -33,6 +33,7 @@ interface LocationInputProps {
   onChange: (location: Location | null) => void;
   className?: string;
   error?: string;
+  "aria-describedby"?: string;
 }
 
 export function LocationInput({
@@ -42,6 +43,7 @@ export function LocationInput({
   onChange,
   className,
   error,
+  "aria-describedby": ariaDescribedBy,
 }: LocationInputProps) {
   const [open, setOpen] = React.useState(false);
   const [searchQuery, setSearchQuery] = React.useState("");
@@ -93,6 +95,8 @@ export function LocationInput({
             aria-expanded={open}
             aria-haspopup="listbox"
             aria-autocomplete="list"
+            aria-invalid={!!error}
+            aria-describedby={ariaDescribedBy}
             role="combobox"
           />
           {value?.isAirport && (

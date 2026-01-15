@@ -178,7 +178,17 @@ export function OfficesPage() {
                         <g
                           transform={`translate(${office.coordinates.x - 2}, ${office.coordinates.y - 2})`}
                           onClick={() => setSelectedOffice(office.id)}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter" || e.key === " ") {
+                              e.preventDefault();
+                              setSelectedOffice(office.id);
+                            }
+                          }}
                           className="cursor-pointer"
+                          role="button"
+                          tabIndex={0}
+                          aria-label={office.name}
+                          aria-pressed={isSelected}
                         >
                           <circle
                             cx="2"
@@ -194,6 +204,7 @@ export function OfficesPage() {
                             fill="white"
                             textAnchor="middle"
                             className="pointer-events-none"
+                            aria-hidden="true"
                           >
                             ✈
                           </text>
@@ -207,6 +218,16 @@ export function OfficesPage() {
                           fill={isSelected ? "#16a34a" : "#22c55e"}
                           className="transition-all duration-300 cursor-pointer"
                           onClick={() => setSelectedOffice(office.id)}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter" || e.key === " ") {
+                              e.preventDefault();
+                              setSelectedOffice(office.id);
+                            }
+                          }}
+                          role="button"
+                          tabIndex={0}
+                          aria-label={office.name}
+                          aria-pressed={isSelected}
                         />
                       )}
                     </g>
@@ -275,11 +296,12 @@ export function OfficesPage() {
         </div>
 
         {/* Filter Buttons */}
-        <div className="flex flex-wrap justify-center gap-2 mb-10">
+        <div className="flex flex-wrap justify-center gap-2 mb-10" role="group" aria-label="Filter offices">
           {filters.map((filter) => (
             <button
               key={filter.key}
               onClick={() => setSelectedFilter(filter.key)}
+              aria-pressed={selectedFilter === filter.key}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                 selectedFilter === filter.key
                   ? "bg-primary text-white"
@@ -340,9 +362,10 @@ function OfficeInfoPanel({ office, t, getGoogleMapsUrl, onClose }: OfficeInfoPan
         </div>
         <button
           onClick={onClose}
+          aria-label="Close panel"
           className="text-gray-400 hover:text-gray-600 transition-colors"
         >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>

@@ -24,6 +24,7 @@ interface DatePickerProps {
   placeholder?: string;
   error?: string;
   disabled?: boolean;
+  "aria-describedby"?: string;
 }
 
 export function DatePicker({
@@ -34,6 +35,7 @@ export function DatePicker({
   placeholder = "Select date",
   error,
   disabled,
+  "aria-describedby": ariaDescribedBy,
 }: DatePickerProps) {
   const [open, setOpen] = React.useState(false);
   const [language, setLanguage] = React.useState<LanguageCode>("hr");
@@ -74,6 +76,9 @@ export function DatePicker({
           id={id}
           variant="outline"
           disabled={disabled}
+          aria-invalid={!!error}
+          aria-describedby={ariaDescribedBy}
+          aria-haspopup="dialog"
           className={cn(
             "w-full justify-start text-left font-normal",
             !value && "text-muted-foreground",

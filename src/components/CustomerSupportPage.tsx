@@ -219,10 +219,11 @@ export function CustomerSupportPage() {
           {/* FAQ Section */}
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-6">{t.faqTitle}</h2>
-            <div className="space-y-3">
+            <div className="space-y-3" role="list" aria-label="Frequently asked questions">
               {faqs.map((faq, index) => (
                 <FAQAccordion
                   key={index}
+                  id={String(index)}
                   question={faq.question}
                   answer={faq.answer}
                   isExpanded={expandedFAQ === index}
@@ -251,7 +252,8 @@ export function CustomerSupportPage() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                        {t.form.name} <span className="text-red-500">*</span>
+                        {t.form.name} <span className="text-red-500" aria-hidden="true">*</span>
+                        <span className="sr-only">(required)</span>
                       </label>
                       <input
                         type="text"
@@ -259,6 +261,9 @@ export function CustomerSupportPage() {
                         name="name"
                         value={formData.name}
                         onChange={handleInputChange}
+                        aria-required="true"
+                        aria-invalid={!!formErrors.name}
+                        aria-describedby={formErrors.name ? "name-error" : undefined}
                         className={cn(
                           "w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors",
                           formErrors.name ? "border-red-500" : "border-gray-200"
@@ -266,13 +271,14 @@ export function CustomerSupportPage() {
                         placeholder={t.form.namePlaceholder}
                       />
                       {formErrors.name && (
-                        <p className="text-red-500 text-sm mt-1">{formErrors.name}</p>
+                        <p id="name-error" role="alert" className="text-red-500 text-sm mt-1">{formErrors.name}</p>
                       )}
                     </div>
 
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                        {t.form.email} <span className="text-red-500">*</span>
+                        {t.form.email} <span className="text-red-500" aria-hidden="true">*</span>
+                        <span className="sr-only">(required)</span>
                       </label>
                       <input
                         type="email"
@@ -280,6 +286,9 @@ export function CustomerSupportPage() {
                         name="email"
                         value={formData.email}
                         onChange={handleInputChange}
+                        aria-required="true"
+                        aria-invalid={!!formErrors.email}
+                        aria-describedby={formErrors.email ? "email-error" : undefined}
                         className={cn(
                           "w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors",
                           formErrors.email ? "border-red-500" : "border-gray-200"
@@ -287,7 +296,7 @@ export function CustomerSupportPage() {
                         placeholder={t.form.emailPlaceholder}
                       />
                       {formErrors.email && (
-                        <p className="text-red-500 text-sm mt-1">{formErrors.email}</p>
+                        <p id="email-error" role="alert" className="text-red-500 text-sm mt-1">{formErrors.email}</p>
                       )}
                     </div>
                   </div>
@@ -309,13 +318,17 @@ export function CustomerSupportPage() {
 
                   <div>
                     <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
-                      {t.form.subject} <span className="text-red-500">*</span>
+                      {t.form.subject} <span className="text-red-500" aria-hidden="true">*</span>
+                      <span className="sr-only">(required)</span>
                     </label>
                     <select
                       id="subject"
                       name="subject"
                       value={formData.subject}
                       onChange={handleInputChange}
+                      aria-required="true"
+                      aria-invalid={!!formErrors.subject}
+                      aria-describedby={formErrors.subject ? "subject-error" : undefined}
                       className={cn(
                         "w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors",
                         formErrors.subject ? "border-red-500" : "border-gray-200"
@@ -329,13 +342,14 @@ export function CustomerSupportPage() {
                       ))}
                     </select>
                     {formErrors.subject && (
-                      <p className="text-red-500 text-sm mt-1">{formErrors.subject}</p>
+                      <p id="subject-error" role="alert" className="text-red-500 text-sm mt-1">{formErrors.subject}</p>
                     )}
                   </div>
 
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                      {t.form.message} <span className="text-red-500">*</span>
+                      {t.form.message} <span className="text-red-500" aria-hidden="true">*</span>
+                      <span className="sr-only">(required)</span>
                     </label>
                     <textarea
                       id="message"
@@ -343,6 +357,9 @@ export function CustomerSupportPage() {
                       value={formData.message}
                       onChange={handleInputChange}
                       rows={5}
+                      aria-required="true"
+                      aria-invalid={!!formErrors.message}
+                      aria-describedby={formErrors.message ? "message-error" : undefined}
                       className={cn(
                         "w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors resize-none",
                         formErrors.message ? "border-red-500" : "border-gray-200"
@@ -350,7 +367,7 @@ export function CustomerSupportPage() {
                       placeholder={t.form.messagePlaceholder}
                     />
                     {formErrors.message && (
-                      <p className="text-red-500 text-sm mt-1">{formErrors.message}</p>
+                      <p id="message-error" role="alert" className="text-red-500 text-sm mt-1">{formErrors.message}</p>
                     )}
                   </div>
 
@@ -416,29 +433,43 @@ interface FAQAccordionProps {
   answer: string;
   isExpanded: boolean;
   onToggle: () => void;
+  id: string;
 }
 
-function FAQAccordion({ question, answer, isExpanded, onToggle }: FAQAccordionProps) {
+function FAQAccordion({ question, answer, isExpanded, onToggle, id }: FAQAccordionProps) {
+  const buttonId = `faq-button-${id}`;
+  const panelId = `faq-panel-${id}`;
+
   return (
     <div className="bg-white rounded-lg border border-gray-100 overflow-hidden">
-      <button
-        onClick={onToggle}
-        className="w-full px-5 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
-      >
-        <span className="font-medium text-gray-900 pr-4">{question}</span>
-        <svg
-          className={cn(
-            "w-5 h-5 text-gray-500 flex-shrink-0 transition-transform",
-            isExpanded && "rotate-180"
-          )}
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
+      <h3>
+        <button
+          id={buttonId}
+          onClick={onToggle}
+          aria-expanded={isExpanded}
+          aria-controls={panelId}
+          className="w-full px-5 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
         >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-        </svg>
-      </button>
+          <span className="font-medium text-gray-900 pr-4">{question}</span>
+          <svg
+            className={cn(
+              "w-5 h-5 text-gray-500 flex-shrink-0 transition-transform",
+              isExpanded && "rotate-180"
+            )}
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+      </h3>
       <div
+        id={panelId}
+        role="region"
+        aria-labelledby={buttonId}
+        hidden={!isExpanded}
         className={cn(
           "overflow-hidden transition-all duration-300",
           isExpanded ? "max-h-96" : "max-h-0"

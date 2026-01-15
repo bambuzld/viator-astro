@@ -138,11 +138,12 @@ export function SpecialOffersPage() {
         {/* Filters and Sorting */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-10">
           {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-2">
+          <div className="flex flex-wrap justify-center gap-2" role="group" aria-label="Filter offers">
             {categories.map((category) => (
               <button
                 key={category.key}
                 onClick={() => setSelectedCategory(category.key)}
+                aria-pressed={selectedCategory === category.key}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                   selectedCategory === category.key
                     ? "bg-primary text-white"
@@ -156,8 +157,9 @@ export function SpecialOffersPage() {
 
           {/* Sort Dropdown */}
           <div className="flex items-center gap-2">
-            <span className="text-sm text-gray-600">{t.sortBy}:</span>
+            <label htmlFor="sort-offers" className="text-sm text-gray-600">{t.sortBy}:</label>
             <select
+              id="sort-offers"
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as SortOption)}
               className="px-3 py-2 rounded-lg border border-gray-200 bg-white text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"

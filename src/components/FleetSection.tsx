@@ -161,11 +161,12 @@ export function FleetSection() {
         </div>
 
         {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-2 mb-10">
+        <div className="flex flex-wrap justify-center gap-2 mb-10" role="group" aria-label="Filter by category">
           {categories.map((category) => (
             <button
               key={category.key}
               onClick={() => setSelectedCategory(category.key)}
+              aria-pressed={selectedCategory === category.key}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                 selectedCategory === category.key
                   ? "bg-primary text-white"

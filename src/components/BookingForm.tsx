@@ -153,11 +153,12 @@ export function BookingForm() {
                     value={field.value}
                     onChange={field.onChange}
                     error={errors.pickupLocation?.message}
+                    aria-describedby={errors.pickupLocation ? "pickup-location-error" : undefined}
                   />
                 )}
               />
               {errors.pickupLocation && (
-                <p className="text-xs text-red-500">{errors.pickupLocation.message}</p>
+                <p id="pickup-location-error" role="alert" className="text-xs text-red-500">{errors.pickupLocation.message}</p>
               )}
             </div>
             <div className="space-y-2">
@@ -178,11 +179,12 @@ export function BookingForm() {
                     }}
                     placeholder={t.booking.placeholder.selectDate}
                     error={errors.pickupDate?.message}
+                    aria-describedby={errors.pickupDate ? "pickup-date-error" : undefined}
                   />
                 )}
               />
               {errors.pickupDate && (
-                <p className="text-xs text-red-500">{errors.pickupDate.message}</p>
+                <p id="pickup-date-error" role="alert" className="text-xs text-red-500">{errors.pickupDate.message}</p>
               )}
             </div>
             <div className="space-y-2">
@@ -213,11 +215,12 @@ export function BookingForm() {
                     minDate={pickupDate}
                     placeholder={t.booking.placeholder.selectDate}
                     error={errors.returnDate?.message}
+                    aria-describedby={errors.returnDate ? "return-date-error" : undefined}
                   />
                 )}
               />
               {errors.returnDate && (
-                <p className="text-xs text-red-500">{errors.returnDate.message}</p>
+                <p id="return-date-error" role="alert" className="text-xs text-red-500">{errors.returnDate.message}</p>
               )}
             </div>
           </div>
@@ -274,11 +277,12 @@ export function BookingForm() {
                     value={field.value}
                     onChange={field.onChange}
                     error={errors.dropoffLocation?.message}
+                    aria-describedby={errors.dropoffLocation ? "dropoff-location-error" : undefined}
                   />
                 )}
               />
               {errors.dropoffLocation && (
-                <p className="text-xs text-red-500">{errors.dropoffLocation.message}</p>
+                <p id="dropoff-location-error" role="alert" className="text-xs text-red-500">{errors.dropoffLocation.message}</p>
               )}
             </div>
           )}
