@@ -220,6 +220,8 @@ function OfferCard({ offer, validUntilLabel, termsLabel, claimLabel, formatDate 
         <img
           src={offer.image}
           alt={offer.title}
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover"
         />
         {/* Discount Badge */}

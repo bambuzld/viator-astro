@@ -12,4 +12,28 @@ export default defineConfig({
     }),
     sitemap(),
   ],
+  build: {
+    // Inline small CSS to reduce requests
+    inlineStylesheets: 'auto',
+  },
+  vite: {
+    build: {
+      // Enable minification
+      minify: 'esbuild',
+      // Split chunks for better caching
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            // Separate React into its own chunk
+            'react-vendor': ['react', 'react-dom'],
+          },
+        },
+      },
+    },
+  },
+  // Enable prefetch for faster navigation
+  prefetch: {
+    prefetchAll: false,
+    defaultStrategy: 'viewport',
+  },
 });

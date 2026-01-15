@@ -54,6 +54,8 @@ export function VehicleCard({ vehicle }: VehicleCardProps) {
         <img
           src={vehicle.image}
           alt={vehicle.name}
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover"
         />
         <span className="absolute top-3 left-3 bg-primary text-white text-xs font-medium px-2.5 py-1 rounded-full">
