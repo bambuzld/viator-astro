@@ -8,43 +8,36 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-
-const STORAGE_KEY = "preferred-language";
-
-interface Language {
-  code: string;
-  name: string;
-  flag: string;
-}
-
-const languages: Language[] = [
-  { code: "hr", name: "Hrvatski", flag: "🇭🇷" },
-  { code: "en", name: "English", flag: "🇬🇧" },
-  { code: "fr", name: "French", flag: "🇫🇷" },
-  { code: "de", name: "Deutsche", flag: "🇩🇪" },
-];
+import {
+  type LanguageCode,
+  SUPPORTED_LANGUAGES,
+  DEFAULT_LANGUAGE,
+  getCurrentLanguage,
+  setCurrentLanguage,
+  getTranslations,
+} from "@/lib/i18n";
 
 export function LanguageSelector() {
   const [open, setOpen] = React.useState(false);
-  const [selectedLanguage, setSelectedLanguage] = React.useState<Language>(
-    languages[1]
-  );
+  const [selectedLanguage, setSelectedLanguage] = React.useState<LanguageCode>(DEFAULT_LANGUAGE);
+  const [translations, setTranslations] = React.useState(getTranslations(DEFAULT_LANGUAGE));
 
   React.useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored) {
-      const found = languages.find((lang) => lang.code === stored);
-      if (found) {
-        setSelectedLanguage(found);
-      }
-    }
+    const lang = getCurrentLanguage();
+    setSelectedLanguage(lang);
+    setTranslations(getTranslations(lang));
   }, []);
 
-  const handleSelectLanguage = (language: Language) => {
-    setSelectedLanguage(language);
-    localStorage.setItem(STORAGE_KEY, language.code);
+  const handleSelectLanguage = (langCode: LanguageCode) => {
+    setSelectedLanguage(langCode);
+    setTranslations(getTranslations(langCode));
+    setCurrentLanguage(langCode);
     setOpen(false);
+    // Force page reload to update static content
+    window.location.reload();
   };
+
+  const currentLangInfo = SUPPORTED_LANGUAGES.find((l) => l.code === selectedLanguage);
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -53,36 +46,36 @@ export function LanguageSelector() {
           variant="ghost"
           size="sm"
           className="gap-2 text-muted-foreground hover:text-foreground"
-          aria-label={`Current language: ${selectedLanguage.name}. Click to change language.`}
+          aria-label={`${translations.language.currentLanguage}: ${currentLangInfo?.nativeName}. ${translations.language.selectLanguage}.`}
         >
           <span className="text-base" aria-hidden="true">
-            {selectedLanguage.flag}
+            {currentLangInfo?.flag}
           </span>
-          <span className="hidden sm:inline">{selectedLanguage.code.toUpperCase()}</span>
+          <span className="hidden sm:inline">{selectedLanguage.toUpperCase()}</span>
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle>Select Language</DialogTitle>
+          <DialogTitle>{translations.language.selectLanguage}</DialogTitle>
         </DialogHeader>
         <div className="grid gap-2 py-4">
-          {languages.map((language) => (
+          {SUPPORTED_LANGUAGES.map((language) => (
             <button
               key={language.code}
-              onClick={() => handleSelectLanguage(language)}
+              onClick={() => handleSelectLanguage(language.code)}
               className={cn(
                 "flex items-center gap-4 w-full px-4 py-3 rounded-lg text-left transition-colors",
                 "hover:bg-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-                selectedLanguage.code === language.code &&
+                selectedLanguage === language.code &&
                   "bg-accent border border-primary"
               )}
-              aria-pressed={selectedLanguage.code === language.code}
+              aria-pressed={selectedLanguage === language.code}
             >
               <span className="text-2xl" aria-hidden="true">
                 {language.flag}
               </span>
-              <span className="font-medium">{language.name}</span>
-              {selectedLanguage.code === language.code && (
+              <span className="font-medium">{language.nativeName}</span>
+              {selectedLanguage === language.code && (
                 <svg
                   className="ml-auto h-5 w-5 text-primary"
                   fill="none"

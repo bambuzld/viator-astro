@@ -1,0 +1,130 @@
+{
+  "common": {
+    "learnMore": "Saznaj više",
+    "bookNow": "Rezerviraj sada",
+    "viewOffer": "Pogledaj ponudu",
+    "claimOffer": "Iskoristi ponudu",
+    "contactUs": "Kontaktirajte nas",
+    "searchCars": "Pretraži vozila",
+    "manageBooking": "Upravljaj rezervacijom",
+    "allRightsReserved": "Sva prava pridržana"
+  },
+  "nav": {
+    "fleet": "Vozni park",
+    "specialOffers": "Posebne ponude",
+    "offices": "Poslovnice",
+    "customerSupport": "Korisnička podrška",
+    "login": "Prijava"
+  },
+  "hero": {
+    "title": "Vaš broj 1 rent a car u Hrvatskoj"
+  },
+  "booking": {
+    "title": "Rezervirajte vozilo",
+    "pickupLocation": "Lokacija preuzimanja",
+    "pickupDate": "Datum preuzimanja",
+    "pickupTime": "Vrijeme preuzimanja",
+    "returnDate": "Datum povrata",
+    "returnTime": "Vrijeme povrata",
+    "differentReturnLocation": "Različita lokacija povrata",
+    "dropoffLocation": "Lokacija povrata",
+    "placeholder": {
+      "location": "Aerodrom, grad...",
+      "selectDate": "Odaberite datum",
+      "selectTime": "Odaberite vrijeme"
+    },
+    "errors": {
+      "pickupLocationRequired": "Molimo odaberite lokaciju preuzimanja",
+      "dropoffLocationRequired": "Molimo odaberite lokaciju povrata",
+      "pickupDateRequired": "Molimo odaberite datum preuzimanja",
+      "returnDateRequired": "Molimo odaberite datum povrata",
+      "returnDateBeforePickup": "Datum povrata ne može biti prije datuma preuzimanja"
+    }
+  },
+  "features": {
+    "sectionTitle": "Jednostavna i brza usluga",
+    "sectionDescription": "Olakšavamo najam vozila s transparentnim cijenama, brzim preuzimanjem i iznimnom korisničkom podrškom tijekom cijelog putovanja.",
+    "wideRange": {
+      "title": "Širok izbor vozila",
+      "description": "Od kompaktnih gradskih automobila do prostranih SUV-ova i luksuznih vozila, imamo savršen automobil za svaku priliku i budžet.",
+      "link": "Vozni park"
+    },
+    "additionalServices": {
+      "title": "Dodatne usluge",
+      "description": "Dječje sjedalice, GPS navigacija, dodatni vozači i opcije osiguranja za udobno i sigurno putovanje.",
+      "link": "Više informacija"
+    },
+    "airports": {
+      "title": "Poslovnice u 6 zračnih luka",
+      "description": "Zagreb, Split, Dubrovnik, Zadar, Pula, Rijeka",
+      "link": "Sve poslovnice"
+    }
+  },
+  "specialOffers": {
+    "sectionTitle": "Posebne ponude",
+    "sectionDescription": "Tražite nešto specifično?",
+    "forPersonalizedDeals": "za personalizirane ponude.",
+    "offers": {
+      "blackFriday": "Black friday -20% popusta!",
+      "summerSpecial": "Ljetna ponuda - Besplatan GPS!",
+      "weekendGetaway": "Vikend bijeg 15% popusta",
+      "loyaltyBonus": "Bonus vjernosti - Dodatni dan besplatno!"
+    }
+  },
+  "rentalStations": {
+    "sectionTitle": "Poslovnice za najam",
+    "sectionDescription": "S poslovnicama diljem najpopularnijih hrvatskih destinacija, uvijek smo u blizini. Pronađite nas u velikim zračnim lukama i gradskim središtima za praktično preuzimanje i vraćanje."
+  },
+  "whyRent": {
+    "sectionTitle": "Zašto iznajmiti kod Last Minute?",
+    "benefits": {
+      "noHiddenFees": "Bez skrivenih troškova - transparentne cijene",
+      "freeCancellation": "Besplatno otkazivanje do 48 sati prije preuzimanja",
+      "roadsideAssistance": "24/7 pomoć na cesti uključena",
+      "unlimitedMileage": "Neograničena kilometraža na svim najmovima",
+      "cleanVehicles": "Čista i dobro održavana vozila",
+      "quickBooking": "Brza i jednostavna online rezervacija",
+      "flexibleLocations": "Fleksibilne lokacije preuzimanja i povrata",
+      "competitiveRates": "Zajamčene konkurentne cijene",
+      "noCreditCardFees": "Bez naknada za kreditne kartice",
+      "multilingualStaff": "Ljubazno višejezično osoblje"
+    }
+  },
+  "footer": {
+    "companyDescription": "Vaš pouzdani rent-a-car partner u Hrvatskoj od 2010. Kvalitetna vozila, transparentne cijene i iznimna usluga.",
+    "sections": {
+      "company": "Tvrtka",
+      "rental": "Najam",
+      "support": "Podrška",
+      "legal": "Pravno"
+    },
+    "links": {
+      "aboutUs": "O nama",
+      "careers": "Karijere",
+      "blog": "Blog",
+      "press": "Mediji",
+      "ourFleet": "Naš vozni park",
+      "locations": "Lokacije",
+      "specialOffers": "Posebne ponude",
+      "longTermRental": "Dugoročni najam",
+      "helpCenter": "Centar za pomoć",
+      "contactUs": "Kontaktirajte nas",
+      "faqs": "Česta pitanja",
+      "roadsideAssistance": "Pomoć na cesti",
+      "termsOfService": "Uvjeti korištenja",
+      "privacyPolicy": "Politika privatnosti",
+      "cookiePolicy": "Politika kolačića",
+      "rentalConditions": "Uvjeti najma"
+    },
+    "followUs": "Pratite nas na"
+  },
+  "language": {
+    "selectLanguage": "Odaberite jezik",
+    "currentLanguage": "Trenutni jezik"
+  },
+  "dateFormats": {
+    "short": "dd.MM.yyyy",
+    "long": "d. MMMM yyyy.",
+    "monthYear": "MMMM yyyy"
+  }
+}

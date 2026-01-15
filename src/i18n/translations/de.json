@@ -1,0 +1,130 @@
+{
+  "common": {
+    "learnMore": "Mehr erfahren",
+    "bookNow": "Jetzt buchen",
+    "viewOffer": "Angebot ansehen",
+    "claimOffer": "Angebot nutzen",
+    "contactUs": "Kontaktieren Sie uns",
+    "searchCars": "Autos suchen",
+    "manageBooking": "Buchung verwalten",
+    "allRightsReserved": "Alle Rechte vorbehalten"
+  },
+  "nav": {
+    "fleet": "Fahrzeugflotte",
+    "specialOffers": "Sonderangebote",
+    "offices": "Filialen",
+    "customerSupport": "Kundendienst",
+    "login": "Anmelden"
+  },
+  "hero": {
+    "title": "Ihre Nr. 1 Autovermietung in Kroatien"
+  },
+  "booking": {
+    "title": "Auto buchen",
+    "pickupLocation": "Abholort",
+    "pickupDate": "Abholdatum",
+    "pickupTime": "Abholzeit",
+    "returnDate": "Rückgabedatum",
+    "returnTime": "Rückgabezeit",
+    "differentReturnLocation": "Anderer Rückgabeort",
+    "dropoffLocation": "Rückgabeort",
+    "placeholder": {
+      "location": "Flughafen, Stadt...",
+      "selectDate": "Datum auswählen",
+      "selectTime": "Zeit auswählen"
+    },
+    "errors": {
+      "pickupLocationRequired": "Bitte wählen Sie einen Abholort",
+      "dropoffLocationRequired": "Bitte wählen Sie einen Rückgabeort",
+      "pickupDateRequired": "Bitte wählen Sie ein Abholdatum",
+      "returnDateRequired": "Bitte wählen Sie ein Rückgabedatum",
+      "returnDateBeforePickup": "Das Rückgabedatum kann nicht vor dem Abholdatum liegen"
+    }
+  },
+  "features": {
+    "sectionTitle": "Einfacher und schneller Service",
+    "sectionDescription": "Wir machen die Autovermietung einfach mit transparenten Preisen, schneller Abholung und außergewöhnlichem Kundensupport während Ihrer gesamten Reise.",
+    "wideRange": {
+      "title": "Eine große Auswahl an Fahrzeugen",
+      "description": "Von kompakten Stadtautos bis zu geräumigen SUVs und Luxusfahrzeugen haben wir das perfekte Auto für jeden Anlass und jedes Budget.",
+      "link": "Fahrzeugflotte"
+    },
+    "additionalServices": {
+      "title": "Zusätzliche Dienstleistungen",
+      "description": "Kindersitze, GPS-Navigation, zusätzliche Fahrer und Versicherungsoptionen für eine komfortable und sichere Reise.",
+      "link": "Mehr Informationen"
+    },
+    "airports": {
+      "title": "Filialen an 6 Flughäfen",
+      "description": "Zagreb, Split, Dubrovnik, Zadar, Pula, Rijeka",
+      "link": "Alle Filialen"
+    }
+  },
+  "specialOffers": {
+    "sectionTitle": "Sonderangebote",
+    "sectionDescription": "Suchen Sie etwas Bestimmtes?",
+    "forPersonalizedDeals": "für personalisierte Angebote.",
+    "offers": {
+      "blackFriday": "Black Friday -20% Rabatt!",
+      "summerSpecial": "Sommer-Spezial - Gratis GPS!",
+      "weekendGetaway": "Wochenendausflug 15% Rabatt",
+      "loyaltyBonus": "Treue-Bonus - Zusätzlicher Tag gratis!"
+    }
+  },
+  "rentalStations": {
+    "sectionTitle": "Mietstationen",
+    "sectionDescription": "Mit Filialen in den beliebtesten Reisezielen Kroatiens sind wir immer in der Nähe. Finden Sie uns an großen Flughäfen und in Stadtzentren für bequeme Abholung und Rückgabe."
+  },
+  "whyRent": {
+    "sectionTitle": "Warum bei Last Minute mieten?",
+    "benefits": {
+      "noHiddenFees": "Keine versteckten Gebühren - transparente Preise",
+      "freeCancellation": "Kostenlose Stornierung bis 48 Stunden vor Abholung",
+      "roadsideAssistance": "24/7 Pannenhilfe inklusive",
+      "unlimitedMileage": "Unbegrenzte Kilometer bei allen Anmietungen",
+      "cleanVehicles": "Saubere und gut gewartete Fahrzeuge",
+      "quickBooking": "Schnelle und einfache Online-Buchung",
+      "flexibleLocations": "Flexible Abhol- und Rückgabeorte",
+      "competitiveRates": "Wettbewerbsfähige Preise garantiert",
+      "noCreditCardFees": "Keine Kreditkartengebühren",
+      "multilingualStaff": "Freundliches mehrsprachiges Personal"
+    }
+  },
+  "footer": {
+    "companyDescription": "Ihr vertrauenswürdiger Autovermietungspartner in Kroatien seit 2010. Qualitätsfahrzeuge, transparente Preise und außergewöhnlicher Service.",
+    "sections": {
+      "company": "Unternehmen",
+      "rental": "Vermietung",
+      "support": "Support",
+      "legal": "Rechtliches"
+    },
+    "links": {
+      "aboutUs": "Über uns",
+      "careers": "Karriere",
+      "blog": "Blog",
+      "press": "Presse",
+      "ourFleet": "Unsere Flotte",
+      "locations": "Standorte",
+      "specialOffers": "Sonderangebote",
+      "longTermRental": "Langzeitmiete",
+      "helpCenter": "Hilfezentrum",
+      "contactUs": "Kontakt",
+      "faqs": "FAQ",
+      "roadsideAssistance": "Pannenhilfe",
+      "termsOfService": "Nutzungsbedingungen",
+      "privacyPolicy": "Datenschutzrichtlinie",
+      "cookiePolicy": "Cookie-Richtlinie",
+      "rentalConditions": "Mietbedingungen"
+    },
+    "followUs": "Folgen Sie uns auf"
+  },
+  "language": {
+    "selectLanguage": "Sprache auswählen",
+    "currentLanguage": "Aktuelle Sprache"
+  },
+  "dateFormats": {
+    "short": "dd.MM.yyyy",
+    "long": "d. MMMM yyyy",
+    "monthYear": "MMMM yyyy"
+  }
+}

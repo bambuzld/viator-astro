@@ -1,0 +1,130 @@
+{
+  "common": {
+    "learnMore": "En savoir plus",
+    "bookNow": "Réserver maintenant",
+    "viewOffer": "Voir l'offre",
+    "claimOffer": "Profiter de l'offre",
+    "contactUs": "Contactez-nous",
+    "searchCars": "Rechercher des voitures",
+    "manageBooking": "Gérer la réservation",
+    "allRightsReserved": "Tous droits réservés"
+  },
+  "nav": {
+    "fleet": "Flotte",
+    "specialOffers": "Offres spéciales",
+    "offices": "Agences",
+    "customerSupport": "Service client",
+    "login": "Connexion"
+  },
+  "hero": {
+    "title": "Votre loueur de voitures n°1 en Croatie"
+  },
+  "booking": {
+    "title": "Réservez votre voiture",
+    "pickupLocation": "Lieu de prise en charge",
+    "pickupDate": "Date de prise en charge",
+    "pickupTime": "Heure de prise en charge",
+    "returnDate": "Date de retour",
+    "returnTime": "Heure de retour",
+    "differentReturnLocation": "Lieu de retour différent",
+    "dropoffLocation": "Lieu de retour",
+    "placeholder": {
+      "location": "Aéroport, ville...",
+      "selectDate": "Sélectionner une date",
+      "selectTime": "Sélectionner une heure"
+    },
+    "errors": {
+      "pickupLocationRequired": "Veuillez sélectionner un lieu de prise en charge",
+      "dropoffLocationRequired": "Veuillez sélectionner un lieu de retour",
+      "pickupDateRequired": "Veuillez sélectionner une date de prise en charge",
+      "returnDateRequired": "Veuillez sélectionner une date de retour",
+      "returnDateBeforePickup": "La date de retour ne peut pas être antérieure à la date de prise en charge"
+    }
+  },
+  "features": {
+    "sectionTitle": "Service simple et rapide",
+    "sectionDescription": "Nous facilitons la location de voiture avec des prix transparents, une prise en charge rapide et un support client exceptionnel tout au long de votre voyage.",
+    "wideRange": {
+      "title": "Une large gamme de véhicules",
+      "description": "Des citadines compactes aux SUV spacieux et véhicules de luxe, nous avons la voiture parfaite pour chaque occasion et budget.",
+      "link": "Flotte de véhicules"
+    },
+    "additionalServices": {
+      "title": "Services supplémentaires",
+      "description": "Sièges enfant, navigation GPS, conducteurs supplémentaires et options d'assurance pour un voyage confortable et sûr.",
+      "link": "Plus d'informations"
+    },
+    "airports": {
+      "title": "Agences dans 6 aéroports",
+      "description": "Zagreb, Split, Dubrovnik, Zadar, Pula, Rijeka",
+      "link": "Toutes les agences"
+    }
+  },
+  "specialOffers": {
+    "sectionTitle": "Offres spéciales",
+    "sectionDescription": "Vous cherchez quelque chose de spécifique ?",
+    "forPersonalizedDeals": "pour des offres personnalisées.",
+    "offers": {
+      "blackFriday": "Black Friday -20% de réduction !",
+      "summerSpecial": "Spécial été - GPS gratuit !",
+      "weekendGetaway": "Escapade week-end 15% de réduction",
+      "loyaltyBonus": "Bonus fidélité - Journée supplémentaire gratuite !"
+    }
+  },
+  "rentalStations": {
+    "sectionTitle": "Stations de location",
+    "sectionDescription": "Avec des agences dans les destinations les plus populaires de Croatie, nous sommes toujours à proximité. Retrouvez-nous dans les principaux aéroports et centres-villes pour une prise en charge et un retour pratiques."
+  },
+  "whyRent": {
+    "sectionTitle": "Pourquoi louer chez Last Minute ?",
+    "benefits": {
+      "noHiddenFees": "Pas de frais cachés - tarification transparente",
+      "freeCancellation": "Annulation gratuite jusqu'à 48 heures avant la prise en charge",
+      "roadsideAssistance": "Assistance routière 24h/24 7j/7 incluse",
+      "unlimitedMileage": "Kilométrage illimité sur toutes les locations",
+      "cleanVehicles": "Véhicules propres et bien entretenus",
+      "quickBooking": "Réservation en ligne rapide et facile",
+      "flexibleLocations": "Lieux de prise en charge et de retour flexibles",
+      "competitiveRates": "Tarifs compétitifs garantis",
+      "noCreditCardFees": "Pas de frais de carte de crédit",
+      "multilingualStaff": "Personnel multilingue sympathique"
+    }
+  },
+  "footer": {
+    "companyDescription": "Votre partenaire de location de voitures de confiance en Croatie depuis 2010. Véhicules de qualité, tarifs transparents et service exceptionnel.",
+    "sections": {
+      "company": "Entreprise",
+      "rental": "Location",
+      "support": "Support",
+      "legal": "Légal"
+    },
+    "links": {
+      "aboutUs": "À propos",
+      "careers": "Carrières",
+      "blog": "Blog",
+      "press": "Presse",
+      "ourFleet": "Notre flotte",
+      "locations": "Emplacements",
+      "specialOffers": "Offres spéciales",
+      "longTermRental": "Location longue durée",
+      "helpCenter": "Centre d'aide",
+      "contactUs": "Contactez-nous",
+      "faqs": "FAQ",
+      "roadsideAssistance": "Assistance routière",
+      "termsOfService": "Conditions d'utilisation",
+      "privacyPolicy": "Politique de confidentialité",
+      "cookiePolicy": "Politique des cookies",
+      "rentalConditions": "Conditions de location"
+    },
+    "followUs": "Suivez-nous sur"
+  },
+  "language": {
+    "selectLanguage": "Sélectionner la langue",
+    "currentLanguage": "Langue actuelle"
+  },
+  "dateFormats": {
+    "short": "dd/MM/yyyy",
+    "long": "d MMMM yyyy",
+    "monthYear": "MMMM yyyy"
+  }
+}

@@ -1,6 +1,5 @@
 import * as React from "react";
-import { format, type Locale } from "date-fns";
-import { enUS, hr, fr, de } from "date-fns/locale";
+import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -11,13 +10,11 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-
-const locales: Record<string, Locale> = {
-  en: enUS,
-  hr: hr,
-  fr: fr,
-  de: de,
-};
+import {
+  getCurrentLanguage,
+  getDateLocale,
+  type LanguageCode,
+} from "@/lib/i18n";
 
 interface DatePickerProps {
   id?: string;
@@ -39,16 +36,22 @@ export function DatePicker({
   disabled,
 }: DatePickerProps) {
   const [open, setOpen] = React.useState(false);
+  const [language, setLanguage] = React.useState<LanguageCode>("hr");
 
-  const getLocale = (): Locale => {
-    if (typeof window !== "undefined") {
-      const lang = localStorage.getItem("selectedLanguage") || "en";
-      return locales[lang] || enUS;
-    }
-    return enUS;
-  };
+  React.useEffect(() => {
+    setLanguage(getCurrentLanguage());
 
-  const locale = getLocale();
+    const handleLanguageChange = (e: CustomEvent<{ language: LanguageCode }>) => {
+      setLanguage(e.detail.language);
+    };
+
+    window.addEventListener("languagechange", handleLanguageChange as EventListener);
+    return () => {
+      window.removeEventListener("languagechange", handleLanguageChange as EventListener);
+    };
+  }, []);
+
+  const locale = getDateLocale(language);
 
   const formatDate = (date: Date): string => {
     return format(date, "PPP", { locale });

@@ -9,56 +9,11 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { LocationInput, type Location } from "@/components/LocationInput";
 import { DatePicker } from "@/components/DatePicker";
 import { TimeSelect } from "@/components/TimeSelect";
-
-const LANGUAGE_STORAGE_KEY = "preferred-language";
-
-type LanguageCode = "en" | "hr" | "fr" | "de";
-
-const errorMessages: Record<LanguageCode, {
-  pickupLocationRequired: string;
-  dropoffLocationRequired: string;
-  pickupDateRequired: string;
-  returnDateRequired: string;
-  returnDateBeforePickup: string;
-}> = {
-  en: {
-    pickupLocationRequired: "Please select a pick-up location",
-    dropoffLocationRequired: "Please select a drop-off location",
-    pickupDateRequired: "Please select a pick-up date",
-    returnDateRequired: "Please select a return date",
-    returnDateBeforePickup: "Return date cannot be before pick-up date",
-  },
-  hr: {
-    pickupLocationRequired: "Molimo odaberite lokaciju preuzimanja",
-    dropoffLocationRequired: "Molimo odaberite lokaciju povrata",
-    pickupDateRequired: "Molimo odaberite datum preuzimanja",
-    returnDateRequired: "Molimo odaberite datum povrata",
-    returnDateBeforePickup: "Datum povrata ne može biti prije datuma preuzimanja",
-  },
-  fr: {
-    pickupLocationRequired: "Veuillez sélectionner un lieu de prise en charge",
-    dropoffLocationRequired: "Veuillez sélectionner un lieu de retour",
-    pickupDateRequired: "Veuillez sélectionner une date de prise en charge",
-    returnDateRequired: "Veuillez sélectionner une date de retour",
-    returnDateBeforePickup: "La date de retour ne peut pas être antérieure à la date de prise en charge",
-  },
-  de: {
-    pickupLocationRequired: "Bitte wählen Sie einen Abholort",
-    dropoffLocationRequired: "Bitte wählen Sie einen Rückgabeort",
-    pickupDateRequired: "Bitte wählen Sie ein Abholdatum",
-    returnDateRequired: "Bitte wählen Sie ein Rückgabedatum",
-    returnDateBeforePickup: "Das Rückgabedatum kann nicht vor dem Abholdatum liegen",
-  },
-};
-
-function getLanguage(): LanguageCode {
-  if (typeof window === "undefined") return "en";
-  const stored = localStorage.getItem(LANGUAGE_STORAGE_KEY);
-  if (stored && ["en", "hr", "fr", "de"].includes(stored)) {
-    return stored as LanguageCode;
-  }
-  return "en";
-}
+import {
+  type LanguageCode,
+  getCurrentLanguage,
+  getTranslations,
+} from "@/lib/i18n";
 
 const bookingSchema = z.object({
   pickupLocation: z.custom<Location | null>(),
@@ -73,21 +28,29 @@ const bookingSchema = z.object({
 type BookingFormData = z.infer<typeof bookingSchema>;
 
 export function BookingForm() {
-  const [language, setLanguage] = React.useState<LanguageCode>("en");
+  const [language, setLanguage] = React.useState<LanguageCode>("hr");
   const [differentReturnLocation, setDifferentReturnLocation] = React.useState(false);
 
   React.useEffect(() => {
-    setLanguage(getLanguage());
+    setLanguage(getCurrentLanguage());
 
     const handleStorageChange = () => {
-      setLanguage(getLanguage());
+      setLanguage(getCurrentLanguage());
+    };
+
+    const handleLanguageChange = (e: CustomEvent<{ language: LanguageCode }>) => {
+      setLanguage(e.detail.language);
     };
 
     window.addEventListener("storage", handleStorageChange);
-    return () => window.removeEventListener("storage", handleStorageChange);
+    window.addEventListener("languagechange", handleLanguageChange as EventListener);
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+      window.removeEventListener("languagechange", handleLanguageChange as EventListener);
+    };
   }, []);
 
-  const messages = errorMessages[language];
+  const t = getTranslations(language);
 
   const {
     control,
@@ -118,25 +81,25 @@ export function BookingForm() {
     clearErrors();
 
     if (!data.pickupLocation) {
-      setError("pickupLocation", { message: messages.pickupLocationRequired });
+      setError("pickupLocation", { message: t.booking.errors.pickupLocationRequired });
       isValid = false;
     }
 
     if (differentReturnLocation && !data.dropoffLocation) {
-      setError("dropoffLocation", { message: messages.dropoffLocationRequired });
+      setError("dropoffLocation", { message: t.booking.errors.dropoffLocationRequired });
       isValid = false;
     }
 
     if (!data.pickupDate) {
-      setError("pickupDate", { message: messages.pickupDateRequired });
+      setError("pickupDate", { message: t.booking.errors.pickupDateRequired });
       isValid = false;
     }
 
     if (!data.returnDate) {
-      setError("returnDate", { message: messages.returnDateRequired });
+      setError("returnDate", { message: t.booking.errors.returnDateRequired });
       isValid = false;
     } else if (data.pickupDate && data.returnDate < data.pickupDate) {
-      setError("returnDate", { message: messages.returnDateBeforePickup });
+      setError("returnDate", { message: t.booking.errors.returnDateBeforePickup });
       isValid = false;
     }
 
@@ -173,20 +136,20 @@ export function BookingForm() {
   return (
     <Card className="w-full max-w-4xl mx-auto shadow-xl">
       <CardHeader className="pb-4">
-        <CardTitle className="text-xl font-semibold">Book Your Car</CardTitle>
+        <CardTitle className="text-xl font-semibold">{t.booking.title}</CardTitle>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="space-y-2">
-              <Label htmlFor="pickup-location">Pick-up Location</Label>
+              <Label htmlFor="pickup-location">{t.booking.pickupLocation}</Label>
               <Controller
                 name="pickupLocation"
                 control={control}
                 render={({ field }) => (
                   <LocationInput
                     id="pickup-location"
-                    placeholder="Airport, city..."
+                    placeholder={t.booking.placeholder.location}
                     value={field.value}
                     onChange={field.onChange}
                     error={errors.pickupLocation?.message}
@@ -198,7 +161,7 @@ export function BookingForm() {
               )}
             </div>
             <div className="space-y-2">
-              <Label htmlFor="pickup-date">Pick-up Date</Label>
+              <Label htmlFor="pickup-date">{t.booking.pickupDate}</Label>
               <Controller
                 name="pickupDate"
                 control={control}
@@ -213,7 +176,7 @@ export function BookingForm() {
                         setValue("returnDate", undefined);
                       }
                     }}
-                    placeholder="Select date"
+                    placeholder={t.booking.placeholder.selectDate}
                     error={errors.pickupDate?.message}
                   />
                 )}
@@ -223,7 +186,7 @@ export function BookingForm() {
               )}
             </div>
             <div className="space-y-2">
-              <Label htmlFor="pickup-time">Pick-up Time</Label>
+              <Label htmlFor="pickup-time">{t.booking.pickupTime}</Label>
               <Controller
                 name="pickupTime"
                 control={control}
@@ -232,13 +195,13 @@ export function BookingForm() {
                     id="pickup-time"
                     value={field.value}
                     onChange={field.onChange}
-                    placeholder="Select time"
+                    placeholder={t.booking.placeholder.selectTime}
                   />
                 )}
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="return-date">Return Date</Label>
+              <Label htmlFor="return-date">{t.booking.returnDate}</Label>
               <Controller
                 name="returnDate"
                 control={control}
@@ -248,7 +211,7 @@ export function BookingForm() {
                     value={field.value}
                     onChange={field.onChange}
                     minDate={pickupDate}
-                    placeholder="Select date"
+                    placeholder={t.booking.placeholder.selectDate}
                     error={errors.returnDate?.message}
                   />
                 )}
@@ -263,7 +226,7 @@ export function BookingForm() {
             <div></div>
             <div></div>
             <div className="space-y-2">
-              <Label htmlFor="return-time">Return Time</Label>
+              <Label htmlFor="return-time">{t.booking.returnTime}</Label>
               <Controller
                 name="returnTime"
                 control={control}
@@ -272,14 +235,14 @@ export function BookingForm() {
                     id="return-time"
                     value={field.value}
                     onChange={field.onChange}
-                    placeholder="Select time"
+                    placeholder={t.booking.placeholder.selectTime}
                   />
                 )}
               />
             </div>
             <div className="flex items-end">
               <Button type="submit" className="w-full">
-                Search Cars
+                {t.common.searchCars}
               </Button>
             </div>
           </div>
@@ -294,20 +257,20 @@ export function BookingForm() {
               htmlFor="different-return"
               className="text-sm font-normal cursor-pointer"
             >
-              Different return location
+              {t.booking.differentReturnLocation}
             </Label>
           </div>
 
           {differentReturnLocation && (
             <div className="space-y-2 max-w-sm">
-              <Label htmlFor="dropoff-location">Drop-off Location</Label>
+              <Label htmlFor="dropoff-location">{t.booking.dropoffLocation}</Label>
               <Controller
                 name="dropoffLocation"
                 control={control}
                 render={({ field }) => (
                   <LocationInput
                     id="dropoff-location"
-                    placeholder="Airport, city..."
+                    placeholder={t.booking.placeholder.location}
                     value={field.value}
                     onChange={field.onChange}
                     error={errors.dropoffLocation?.message}

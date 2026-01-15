@@ -1,0 +1,130 @@
+{
+  "common": {
+    "learnMore": "Learn more",
+    "bookNow": "Book now",
+    "viewOffer": "View offer",
+    "claimOffer": "Claim offer",
+    "contactUs": "Contact us",
+    "searchCars": "Search Cars",
+    "manageBooking": "Manage Booking",
+    "allRightsReserved": "All rights reserved"
+  },
+  "nav": {
+    "fleet": "Fleet",
+    "specialOffers": "Special Offers",
+    "offices": "Offices",
+    "customerSupport": "Customer Support",
+    "login": "Login"
+  },
+  "hero": {
+    "title": "Your No1 rent a car in Croatia"
+  },
+  "booking": {
+    "title": "Book Your Car",
+    "pickupLocation": "Pick-up Location",
+    "pickupDate": "Pick-up Date",
+    "pickupTime": "Pick-up Time",
+    "returnDate": "Return Date",
+    "returnTime": "Return Time",
+    "differentReturnLocation": "Different return location",
+    "dropoffLocation": "Drop-off Location",
+    "placeholder": {
+      "location": "Airport, city...",
+      "selectDate": "Select date",
+      "selectTime": "Select time"
+    },
+    "errors": {
+      "pickupLocationRequired": "Please select a pick-up location",
+      "dropoffLocationRequired": "Please select a drop-off location",
+      "pickupDateRequired": "Please select a pick-up date",
+      "returnDateRequired": "Please select a return date",
+      "returnDateBeforePickup": "Return date cannot be before pick-up date"
+    }
+  },
+  "features": {
+    "sectionTitle": "Simple and fast service",
+    "sectionDescription": "We make car rental easy with transparent pricing, quick pickup, and exceptional customer support throughout your journey.",
+    "wideRange": {
+      "title": "A wide range of vehicles",
+      "description": "From compact city cars to spacious SUVs and luxury vehicles, we have the perfect car for every occasion and budget.",
+      "link": "Vehicle fleet"
+    },
+    "additionalServices": {
+      "title": "Additional services",
+      "description": "Child seats, GPS navigation, additional drivers, and insurance options to make your journey comfortable and safe.",
+      "link": "More information"
+    },
+    "airports": {
+      "title": "Branches in 6 airports",
+      "description": "Zagreb, Split, Dubrovnik, Zadar, Pula, Rijeka",
+      "link": "All offices"
+    }
+  },
+  "specialOffers": {
+    "sectionTitle": "Special offers",
+    "sectionDescription": "Looking for something specific?",
+    "forPersonalizedDeals": "for personalized deals.",
+    "offers": {
+      "blackFriday": "Black friday -20% discount!",
+      "summerSpecial": "Summer special - Free GPS!",
+      "weekendGetaway": "Weekend getaway 15% off",
+      "loyaltyBonus": "Loyalty bonus - Extra day free!"
+    }
+  },
+  "rentalStations": {
+    "sectionTitle": "Rental stations",
+    "sectionDescription": "With branches across Croatia's most popular destinations, we're always nearby. Find us at major airports and city centers for convenient pickup and drop-off."
+  },
+  "whyRent": {
+    "sectionTitle": "Why rent with Last Minute?",
+    "benefits": {
+      "noHiddenFees": "No hidden fees - transparent pricing",
+      "freeCancellation": "Free cancellation up to 48 hours before pickup",
+      "roadsideAssistance": "24/7 roadside assistance included",
+      "unlimitedMileage": "Unlimited mileage on all rentals",
+      "cleanVehicles": "Clean and well-maintained vehicles",
+      "quickBooking": "Quick and easy online booking",
+      "flexibleLocations": "Flexible pickup and return locations",
+      "competitiveRates": "Competitive rates guaranteed",
+      "noCreditCardFees": "No credit card fees",
+      "multilingualStaff": "Friendly multilingual staff"
+    }
+  },
+  "footer": {
+    "companyDescription": "Your trusted rent-a-car partner in Croatia since 2010. Quality vehicles, transparent pricing, and exceptional service.",
+    "sections": {
+      "company": "Company",
+      "rental": "Rental",
+      "support": "Support",
+      "legal": "Legal"
+    },
+    "links": {
+      "aboutUs": "About Us",
+      "careers": "Careers",
+      "blog": "Blog",
+      "press": "Press",
+      "ourFleet": "Our Fleet",
+      "locations": "Locations",
+      "specialOffers": "Special Offers",
+      "longTermRental": "Long-term Rental",
+      "helpCenter": "Help Center",
+      "contactUs": "Contact Us",
+      "faqs": "FAQs",
+      "roadsideAssistance": "Roadside Assistance",
+      "termsOfService": "Terms of Service",
+      "privacyPolicy": "Privacy Policy",
+      "cookiePolicy": "Cookie Policy",
+      "rentalConditions": "Rental Conditions"
+    },
+    "followUs": "Follow us on"
+  },
+  "language": {
+    "selectLanguage": "Select Language",
+    "currentLanguage": "Current language"
+  },
+  "dateFormats": {
+    "short": "MM/dd/yyyy",
+    "long": "MMMM d, yyyy",
+    "monthYear": "MMMM yyyy"
+  }
+}
