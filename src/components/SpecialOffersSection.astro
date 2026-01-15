@@ -1,0 +1,27 @@
+---
+import { SpecialOffersCarousel } from "./SpecialOffersCarousel";
+---
+
+<section class="py-16 md:py-24 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12 md:mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Special offers
+      </h2>
+      <p class="text-lg text-gray-600">
+        Looking for something specific?{" "}
+        <a
+          href="/contact"
+          class="text-blue-600 hover:text-blue-700 underline transition-colors"
+        >
+          Contact us
+        </a>{" "}
+        for personalized deals.
+      </p>
+    </div>
+
+    <div class="max-w-5xl mx-auto px-8 md:px-16">
+      <SpecialOffersCarousel client:visible />
+    </div>
+  </div>
+</section>
