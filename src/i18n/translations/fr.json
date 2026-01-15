@@ -126,5 +126,30 @@
     "short": "dd/MM/yyyy",
     "long": "d MMMM yyyy",
     "monthYear": "MMMM yyyy"
+  },
+  "fleet": {
+    "pageTitle": "Notre Flotte",
+    "pageDescription": "Découvrez notre flotte diversifiée de véhicules - des citadines économiques aux berlines de luxe et SUV spacieux.",
+    "metaDescription": "Parcourez notre flotte de véhicules - voitures économiques, compactes, SUV et de luxe à louer en Croatie.",
+    "allCategories": "Toutes les catégories",
+    "categories": {
+      "economy": "Économique",
+      "compact": "Compacte",
+      "suv": "SUV",
+      "luxury": "Luxe"
+    },
+    "specifications": {
+      "passengers": "Passagers",
+      "doors": "Portes",
+      "luggage": "Bagages",
+      "transmission": "Transmission",
+      "airConditioning": "Clim.",
+      "automatic": "Automatique",
+      "manual": "Manuelle"
+    },
+    "priceFrom": "À partir de",
+    "perDay": "/jour",
+    "viewDetails": "Voir les détails",
+    "bookNow": "Réserver"
   }
 }

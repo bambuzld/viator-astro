@@ -126,5 +126,30 @@
     "short": "dd.MM.yyyy",
     "long": "d. MMMM yyyy",
     "monthYear": "MMMM yyyy"
+  },
+  "fleet": {
+    "pageTitle": "Unsere Flotte",
+    "pageDescription": "Entdecken Sie unsere vielfältige Fahrzeugflotte - von sparsamen Stadtautos bis zu Luxuslimousinen und geräumigen SUVs.",
+    "metaDescription": "Durchstöbern Sie unsere Fahrzeugflotte - Economy-, Kompakt-, SUV- und Luxusfahrzeuge zur Miete in Kroatien.",
+    "allCategories": "Alle Kategorien",
+    "categories": {
+      "economy": "Economy",
+      "compact": "Kompakt",
+      "suv": "SUV",
+      "luxury": "Luxus"
+    },
+    "specifications": {
+      "passengers": "Passagiere",
+      "doors": "Türen",
+      "luggage": "Gepäck",
+      "transmission": "Getriebe",
+      "airConditioning": "Klima",
+      "automatic": "Automatik",
+      "manual": "Manuell"
+    },
+    "priceFrom": "Ab",
+    "perDay": "/Tag",
+    "viewDetails": "Details ansehen",
+    "bookNow": "Jetzt buchen"
   }
 }

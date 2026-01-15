@@ -126,5 +126,30 @@
     "short": "dd.MM.yyyy",
     "long": "d. MMMM yyyy.",
     "monthYear": "MMMM yyyy"
+  },
+  "fleet": {
+    "pageTitle": "Vozni park",
+    "pageDescription": "Istražite našu raznovrsnu flotu vozila - od ekonomičnih gradskih automobila do luksuznih limuzina i prostranih SUV-ova.",
+    "metaDescription": "Pregledajte naš vozni park - ekonomična, kompaktna, SUV i luksuzna vozila za najam u Hrvatskoj.",
+    "allCategories": "Sve kategorije",
+    "categories": {
+      "economy": "Ekonomična",
+      "compact": "Kompaktna",
+      "suv": "SUV",
+      "luxury": "Luksuzna"
+    },
+    "specifications": {
+      "passengers": "Putnika",
+      "doors": "Vrata",
+      "luggage": "Prtljage",
+      "transmission": "Mjenjač",
+      "airConditioning": "Klima",
+      "automatic": "Automatik",
+      "manual": "Ručni"
+    },
+    "priceFrom": "Od",
+    "perDay": "/dan",
+    "viewDetails": "Pogledaj detalje",
+    "bookNow": "Rezerviraj"
   }
 }

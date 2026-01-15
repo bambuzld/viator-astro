@@ -1,0 +1,13 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { FleetSection } from "../components/FleetSection";
+---
+
+<Layout
+  title="LastMinute Rent-a-Car | Fleet"
+  description="Browse our vehicle fleet - economy, compact, SUV and luxury cars for rent in Croatia."
+>
+  <main>
+    <FleetSection client:load />
+  </main>
+</Layout>

@@ -126,5 +126,30 @@
     "short": "MM/dd/yyyy",
     "long": "MMMM d, yyyy",
     "monthYear": "MMMM yyyy"
+  },
+  "fleet": {
+    "pageTitle": "Our Fleet",
+    "pageDescription": "Explore our diverse fleet of vehicles - from economical city cars to luxury sedans and spacious SUVs.",
+    "metaDescription": "Browse our vehicle fleet - economy, compact, SUV and luxury cars for rent in Croatia.",
+    "allCategories": "All Categories",
+    "categories": {
+      "economy": "Economy",
+      "compact": "Compact",
+      "suv": "SUV",
+      "luxury": "Luxury"
+    },
+    "specifications": {
+      "passengers": "Passengers",
+      "doors": "Doors",
+      "luggage": "Luggage",
+      "transmission": "Transmission",
+      "airConditioning": "A/C",
+      "automatic": "Automatic",
+      "manual": "Manual"
+    },
+    "priceFrom": "From",
+    "perDay": "/day",
+    "viewDetails": "View Details",
+    "bookNow": "Book Now"
   }
 }
