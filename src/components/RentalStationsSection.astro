@@ -1,0 +1,22 @@
+---
+import { RentalStationsMap } from "./RentalStationsMap";
+---
+
+<section class="py-16 md:py-24 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12 md:mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Rental stations
+      </h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        With branches across Croatia's most popular destinations, we're always
+        nearby. Find us at major airports and city centers for convenient pickup
+        and drop-off.
+      </p>
+    </div>
+
+    <div class="max-w-5xl mx-auto">
+      <RentalStationsMap client:visible />
+    </div>
+  </div>
+</section>
