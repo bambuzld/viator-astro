@@ -3,7 +3,20 @@
  *
  * This module provides a comprehensive set of utilities for making API calls,
  * handling errors, and managing loading states.
+ *
+ * Mock API Support:
+ * - Set PUBLIC_MOCK_API=true (default) to use mock data with simulated latency
+ * - Set PUBLIC_MOCK_API=false to use real backend API
  */
+
+import {
+  MOCK_CONFIG,
+  mockVehiclesApi,
+  mockOfficesApi,
+  mockOffersApi,
+  mockBookingsApi,
+  mockSupportApi,
+} from "./mock-api";
 
 // ============================================================================
 // Configuration
@@ -19,6 +32,8 @@ export const API_CONFIG = {
     "Content-Type": "application/ld+json",
     Accept: "application/ld+json",
   },
+  /** Whether to use mock API (defaults to true for development/testing) */
+  useMockApi: MOCK_CONFIG.enabled,
 } as const;
 
 // ============================================================================
@@ -591,10 +606,11 @@ export async function apiDelete<T = void>(
 // Resource-Specific API Functions
 // ============================================================================
 
-/**
- * Vehicles API
- */
-export const vehiclesApi = {
+// ============================================================================
+// Real API Functions (used when mock is disabled)
+// ============================================================================
+
+const realVehiclesApi = {
   getAll: (params?: {
     category?: string;
     available?: boolean;
@@ -615,10 +631,7 @@ export const vehiclesApi = {
     ),
 };
 
-/**
- * Offices API
- */
-export const officesApi = {
+const realOfficesApi = {
   getAll: (params?: { type?: string; city?: string; active?: boolean }) =>
     apiGet<HydraCollection<ApiOffice>>("/offices", params),
 
@@ -632,10 +645,7 @@ export const officesApi = {
     }),
 };
 
-/**
- * Offers API
- */
-export const offersApi = {
+const realOffersApi = {
   getAll: (params?: {
     category?: string;
     active?: boolean;
@@ -651,10 +661,7 @@ export const offersApi = {
     ),
 };
 
-/**
- * Bookings API
- */
-export const bookingsApi = {
+const realBookingsApi = {
   create: (data: BookingFormData) =>
     apiPost<ApiBooking>("/bookings", data),
 
@@ -682,16 +689,47 @@ export interface PriceBreakdown {
   total: number;
 }
 
-/**
- * Support API
- */
-export const supportApi = {
+const realSupportApi = {
   submitRequest: (data: ContactFormData) =>
     apiPost<ApiSupportRequest>("/support-requests", data),
 
   getByEmail: (email: string) =>
     apiGet<HydraCollection<ApiSupportRequest>>("/support-requests", { email }),
 };
+
+// ============================================================================
+// Exported API (automatically switches between mock and real)
+// ============================================================================
+
+/**
+ * Vehicles API
+ * Uses mock data when PUBLIC_MOCK_API is true (default), real API otherwise
+ */
+export const vehiclesApi = API_CONFIG.useMockApi ? mockVehiclesApi : realVehiclesApi;
+
+/**
+ * Offices API
+ * Uses mock data when PUBLIC_MOCK_API is true (default), real API otherwise
+ */
+export const officesApi = API_CONFIG.useMockApi ? mockOfficesApi : realOfficesApi;
+
+/**
+ * Offers API
+ * Uses mock data when PUBLIC_MOCK_API is true (default), real API otherwise
+ */
+export const offersApi = API_CONFIG.useMockApi ? mockOffersApi : realOffersApi;
+
+/**
+ * Bookings API
+ * Uses mock data when PUBLIC_MOCK_API is true (default), real API otherwise
+ */
+export const bookingsApi = API_CONFIG.useMockApi ? mockBookingsApi : realBookingsApi;
+
+/**
+ * Support API
+ * Uses mock data when PUBLIC_MOCK_API is true (default), real API otherwise
+ */
+export const supportApi = API_CONFIG.useMockApi ? mockSupportApi : realSupportApi;
 
 // ============================================================================
 // React Hook Helpers

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getCurrentLanguage, type LanguageCode } from "@/lib/i18n";
 import { VehicleCard, type Vehicle } from "./VehicleCard";
+import { vehiclesApi, extractCollectionItems, type ApiVehicle } from "@/lib/api";
 import hrTranslations from "@/i18n/translations/hr.json";
 import enTranslations from "@/i18n/translations/en.json";
 import frTranslations from "@/i18n/translations/fr.json";
@@ -13,111 +14,32 @@ const translations: Record<LanguageCode, typeof hrTranslations> = {
   de: deTranslations,
 };
 
-// Sample vehicle data
-const vehicles: Vehicle[] = [
-  {
-    id: "1",
-    name: "Fiat 500",
-    category: "economy",
-    image: "https://images.unsplash.com/photo-1595787572043-69f9e2d2eb10?w=600&h=450&fit=crop",
-    passengers: 4,
-    doors: 3,
-    luggage: 1,
-    transmission: "manual",
-    hasAC: true,
-    pricePerDay: 29,
-  },
-  {
-    id: "2",
-    name: "Toyota Yaris",
-    category: "economy",
-    image: "https://images.unsplash.com/photo-1619682817481-e994891cd1f5?w=600&h=450&fit=crop",
-    passengers: 5,
-    doors: 5,
-    luggage: 2,
-    transmission: "automatic",
-    hasAC: true,
-    pricePerDay: 35,
-  },
-  {
-    id: "3",
-    name: "Volkswagen Golf",
-    category: "compact",
-    image: "https://images.unsplash.com/photo-1471444928139-48c5bf5173f8?w=600&h=450&fit=crop",
-    passengers: 5,
-    doors: 5,
-    luggage: 3,
-    transmission: "automatic",
-    hasAC: true,
-    pricePerDay: 45,
-  },
-  {
-    id: "4",
-    name: "Škoda Octavia",
-    category: "compact",
-    image: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?w=600&h=450&fit=crop",
-    passengers: 5,
-    doors: 5,
-    luggage: 4,
-    transmission: "automatic",
-    hasAC: true,
-    pricePerDay: 49,
-  },
-  {
-    id: "5",
-    name: "Toyota RAV4",
-    category: "suv",
-    image: "https://images.unsplash.com/photo-1568844293986-8c1a5f8b4f29?w=600&h=450&fit=crop",
-    passengers: 5,
-    doors: 5,
-    luggage: 5,
-    transmission: "automatic",
-    hasAC: true,
-    pricePerDay: 65,
-  },
-  {
-    id: "6",
-    name: "BMW X5",
-    category: "suv",
-    image: "https://images.unsplash.com/photo-1606611013016-969c19ba27bb?w=600&h=450&fit=crop",
-    passengers: 5,
-    doors: 5,
-    luggage: 5,
-    transmission: "automatic",
-    hasAC: true,
-    pricePerDay: 95,
-  },
-  {
-    id: "7",
-    name: "Mercedes-Benz E-Class",
-    category: "luxury",
-    image: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=600&h=450&fit=crop",
-    passengers: 5,
-    doors: 4,
-    luggage: 4,
-    transmission: "automatic",
-    hasAC: true,
-    pricePerDay: 120,
-  },
-  {
-    id: "8",
-    name: "BMW 7 Series",
-    category: "luxury",
-    image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600&h=450&fit=crop",
-    passengers: 5,
-    doors: 4,
-    luggage: 4,
-    transmission: "automatic",
-    hasAC: true,
-    pricePerDay: 150,
-  },
-];
+/**
+ * Transform API vehicle to component vehicle format
+ */
+function transformApiVehicle(apiVehicle: ApiVehicle): Vehicle {
+  return {
+    id: apiVehicle.id,
+    name: apiVehicle.name,
+    category: apiVehicle.category,
+    image: apiVehicle.imageUrl,
+    passengers: apiVehicle.passengers,
+    doors: apiVehicle.doors,
+    luggage: apiVehicle.luggage,
+    transmission: apiVehicle.transmission,
+    hasAC: apiVehicle.hasAirConditioning,
+    pricePerDay: apiVehicle.pricePerDay,
+  };
+}
 
 type Category = "all" | "economy" | "compact" | "suv" | "luxury";
 
 export function FleetSection() {
   const [language, setLanguage] = useState<LanguageCode>("hr");
   const [selectedCategory, setSelectedCategory] = useState<Category>("all");
+  const [vehicles, setVehicles] = useState<Vehicle[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     setLanguage(getCurrentLanguage());
@@ -130,6 +52,26 @@ export function FleetSection() {
     return () => {
       window.removeEventListener("languagechange", handleLanguageChange);
     };
+  }, []);
+
+  // Fetch vehicles from API
+  useEffect(() => {
+    async function fetchVehicles() {
+      setIsLoading(true);
+      setError(null);
+      try {
+        const response = await vehiclesApi.getAll({ available: true });
+        const apiVehicles = extractCollectionItems(response);
+        setVehicles(apiVehicles.map(transformApiVehicle));
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "Failed to load vehicles");
+        console.error("Failed to fetch vehicles:", err);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    fetchVehicles();
   }, []);
 
   const t = translations[language].fleet;
@@ -179,11 +121,42 @@ export function FleetSection() {
         </div>
 
         {/* Vehicle Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {filteredVehicles.map((vehicle) => (
-            <VehicleCard key={vehicle.id} vehicle={vehicle} />
-          ))}
-        </div>
+        {isLoading ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {[...Array(8)].map((_, i) => (
+              <div key={i} className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden animate-pulse">
+                <div className="aspect-[4/3] bg-gray-200" />
+                <div className="p-4 space-y-3">
+                  <div className="h-5 bg-gray-200 rounded w-3/4" />
+                  <div className="h-4 bg-gray-200 rounded w-1/2" />
+                  <div className="h-8 bg-gray-200 rounded w-full" />
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : error ? (
+          <div className="text-center py-12">
+            <p className="text-red-500 mb-4">{error}</p>
+            <button
+              onClick={() => window.location.reload()}
+              className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90"
+            >
+              {language === "hr" ? "Pokušaj ponovno" : "Try again"}
+            </button>
+          </div>
+        ) : filteredVehicles.length === 0 ? (
+          <div className="text-center py-12">
+            <p className="text-gray-500">
+              {language === "hr" ? "Nema dostupnih vozila u ovoj kategoriji" : "No vehicles available in this category"}
+            </p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {filteredVehicles.map((vehicle) => (
+              <VehicleCard key={vehicle.id} vehicle={vehicle} />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

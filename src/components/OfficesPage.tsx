@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getCurrentLanguage, type LanguageCode } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
+import { officesApi, extractCollectionItems, type ApiOffice } from "@/lib/api";
 import hrTranslations from "@/i18n/translations/hr.json";
 import enTranslations from "@/i18n/translations/en.json";
 import frTranslations from "@/i18n/translations/fr.json";
@@ -31,42 +32,57 @@ interface Office {
   };
 }
 
-// Office coordinates on the map
-const officeCoordinates: Record<string, { x: number; y: number }> = {
-  zagrebAirport: { x: 58, y: 26 },
-  zagrebCity: { x: 60, y: 30 },
-  splitAirport: { x: 52, y: 70 },
-  splitCity: { x: 54, y: 74 },
-  dubrovnikAirport: { x: 78, y: 92 },
-  zadarAirport: { x: 40, y: 58 },
-  pulaAirport: { x: 18, y: 52 },
-  rijekaAirport: { x: 30, y: 38 },
+// Map coordinates for Croatian cities (for SVG map display)
+const cityMapCoordinates: Record<string, { x: number; y: number }> = {
+  zagreb: { x: 58, y: 28 },
+  split: { x: 52, y: 72 },
+  dubrovnik: { x: 78, y: 92 },
+  zadar: { x: 40, y: 58 },
+  pula: { x: 18, y: 52 },
+  rijeka: { x: 30, y: 38 },
 };
 
-// Office hours (constant for all offices)
-const officeHours = {
-  airport: {
-    weekdays: "06:00 - 23:00",
-    saturday: "06:00 - 23:00",
-    sunday: "06:00 - 23:00",
-  },
-  city: {
-    weekdays: "08:00 - 20:00",
-    saturday: "09:00 - 14:00",
-    sunday: "closed",
-  },
-};
+/**
+ * Get map coordinates based on city name
+ */
+function getMapCoordinates(city: string, type: "airport" | "city"): { x: number; y: number } {
+  const cityLower = city.toLowerCase();
+  const base = cityMapCoordinates[cityLower] || { x: 50, y: 50 };
+  // Slightly offset city offices from airport offices
+  if (type === "city") {
+    return { x: base.x + 2, y: base.y + 4 };
+  }
+  return base;
+}
 
-// Services available at each office type
-const officeServices: Record<string, string[]> = {
-  airport: ["airportPickup", "afterHoursReturn", "childSeats", "gpsNavigation", "additionalDriver", "fullInsurance"],
-  city: ["childSeats", "gpsNavigation", "additionalDriver", "fullInsurance"],
-};
+/**
+ * Transform API office to component office format
+ */
+function transformApiOffice(apiOffice: ApiOffice): Office {
+  return {
+    id: apiOffice.id,
+    name: apiOffice.name,
+    address: apiOffice.address,
+    phone: apiOffice.phone,
+    email: apiOffice.email,
+    type: apiOffice.type as OfficeType,
+    coordinates: getMapCoordinates(apiOffice.city, apiOffice.type),
+    services: apiOffice.services,
+    hours: {
+      weekdays: apiOffice.workingHours.weekdays,
+      saturday: apiOffice.workingHours.saturday,
+      sunday: apiOffice.workingHours.sunday,
+    },
+  };
+}
 
 export function OfficesPage() {
   const [language, setLanguage] = useState<LanguageCode>("hr");
   const [selectedFilter, setSelectedFilter] = useState<OfficeType>("all");
   const [selectedOffice, setSelectedOffice] = useState<string | null>(null);
+  const [offices, setOffices] = useState<Office[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     setLanguage(getCurrentLanguage());
@@ -81,6 +97,26 @@ export function OfficesPage() {
     };
   }, []);
 
+  // Fetch offices from API
+  useEffect(() => {
+    async function fetchOffices() {
+      setIsLoading(true);
+      setError(null);
+      try {
+        const response = await officesApi.getAll({ active: true });
+        const apiOffices = extractCollectionItems(response);
+        setOffices(apiOffices.map(transformApiOffice));
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "Failed to load offices");
+        console.error("Failed to fetch offices:", err);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    fetchOffices();
+  }, []);
+
   const t = translations[language].officesPage;
 
   const filters: { key: OfficeType; label: string }[] = [
@@ -88,19 +124,6 @@ export function OfficesPage() {
     { key: "airport", label: t.filterAirport },
     { key: "city", label: t.filterCity },
   ];
-
-  // Build offices array from translations
-  const offices: Office[] = Object.entries(t.offices).map(([key, office]) => ({
-    id: key,
-    name: office.name,
-    address: office.address,
-    phone: office.phone,
-    email: office.email,
-    type: office.type as OfficeType,
-    coordinates: officeCoordinates[key] || { x: 50, y: 50 },
-    services: officeServices[office.type] || [],
-    hours: officeHours[office.type as "airport" | "city"] || officeHours.city,
-  }));
 
   // Filter offices
   const filteredOffices =
@@ -314,19 +337,48 @@ export function OfficesPage() {
         </div>
 
         {/* Offices Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {filteredOffices.map((office) => (
-            <OfficeCard
-              key={office.id}
-              office={office}
-              t={t}
-              getServiceLabel={getServiceLabel}
-              getGoogleMapsUrl={getGoogleMapsUrl}
-              isSelected={selectedOffice === office.id}
-              onSelect={() => setSelectedOffice(office.id)}
-            />
-          ))}
-        </div>
+        {isLoading ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {[...Array(8)].map((_, i) => (
+              <div key={i} className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden animate-pulse">
+                <div className="h-14 bg-gray-200" />
+                <div className="p-4 space-y-3">
+                  <div className="h-4 bg-gray-200 rounded w-3/4" />
+                  <div className="h-4 bg-gray-200 rounded w-1/2" />
+                  <div className="h-4 bg-gray-200 rounded w-2/3" />
+                  <div className="flex gap-2">
+                    <div className="h-6 bg-gray-200 rounded w-16" />
+                    <div className="h-6 bg-gray-200 rounded w-16" />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : error ? (
+          <div className="text-center py-12">
+            <p className="text-red-500 mb-4">{error}</p>
+            <button
+              onClick={() => window.location.reload()}
+              className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90"
+            >
+              {language === "hr" ? "Pokušaj ponovno" : "Try again"}
+            </button>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {filteredOffices.map((office) => (
+              <OfficeCard
+                key={office.id}
+                office={office}
+                t={t}
+                getServiceLabel={getServiceLabel}
+                getGoogleMapsUrl={getGoogleMapsUrl}
+                isSelected={selectedOffice === office.id}
+                onSelect={() => setSelectedOffice(office.id)}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

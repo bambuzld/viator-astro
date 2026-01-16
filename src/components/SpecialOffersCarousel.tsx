@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -8,47 +9,72 @@ import {
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { offersApi, extractCollectionItems, type ApiOffer } from "@/lib/api";
 
 interface Offer {
   id: string;
   title: string;
-  imageAlt: string;
-  ctaText: string;
+  description: string;
+  imageUrl: string;
+  discountLabel: string;
   ctaHref: string;
 }
 
-const offers: Offer[] = [
-  {
-    id: "1",
-    title: "Black friday -20% discount!",
-    imageAlt: "Happy travelers enjoying their road trip",
-    ctaText: "Learn more",
-    ctaHref: "/offers/black-friday",
-  },
-  {
-    id: "2",
-    title: "Summer special - Free GPS!",
-    imageAlt: "Family enjoying summer vacation by car",
-    ctaText: "Book now",
-    ctaHref: "/offers/summer-special",
-  },
-  {
-    id: "3",
-    title: "Weekend getaway 15% off",
-    imageAlt: "Couple on a weekend road trip",
-    ctaText: "View offer",
-    ctaHref: "/offers/weekend-getaway",
-  },
-  {
-    id: "4",
-    title: "Loyalty bonus - Extra day free!",
-    imageAlt: "Returning customer with rental car",
-    ctaText: "Claim offer",
-    ctaHref: "/offers/loyalty-bonus",
-  },
-];
+/**
+ * Transform API offer to component offer format
+ */
+function transformApiOffer(apiOffer: ApiOffer): Offer {
+  return {
+    id: apiOffer.id,
+    title: apiOffer.title,
+    description: apiOffer.description,
+    imageUrl: apiOffer.imageUrl,
+    discountLabel: apiOffer.discountLabel,
+    ctaHref: `/special-offers#offer-${apiOffer.id}`,
+  };
+}
 
 export function SpecialOffersCarousel() {
+  const [offers, setOffers] = useState<Offer[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchOffers() {
+      try {
+        const response = await offersApi.getAll({ active: true });
+        const apiOffers = extractCollectionItems(response);
+        setOffers(apiOffers.map(transformApiOffer));
+      } catch (err) {
+        console.error("Failed to fetch offers:", err);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    fetchOffers();
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className="w-full">
+        <div className="flex gap-4">
+          {[...Array(2)].map((_, i) => (
+            <div key={i} className="flex-1 bg-white rounded-xl shadow-lg overflow-hidden animate-pulse">
+              <div className="aspect-[16/10] bg-gray-200" />
+              <div className="p-6 space-y-3">
+                <div className="h-6 bg-gray-200 rounded w-3/4" />
+                <div className="h-10 bg-gray-200 rounded w-1/3" />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  if (offers.length === 0) {
+    return null;
+  }
   return (
     <Carousel
       opts={{
@@ -65,33 +91,30 @@ export function SpecialOffersCarousel() {
           >
             <Card className="overflow-hidden border-0 shadow-lg h-full">
               <CardContent className="p-0 h-full flex flex-col">
-                <div className="relative aspect-[16/10] bg-gray-200 flex items-center justify-center">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-blue-600 opacity-20" />
-                  <div className="flex flex-col items-center justify-center text-gray-400 z-10">
-                    <svg
-                      className="w-16 h-16 mb-2"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={1.5}
-                        d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                    <span className="text-sm">{offer.imageAlt}</span>
-                  </div>
+                <div className="relative aspect-[16/10] bg-gray-200">
+                  <img
+                    src={offer.imageUrl}
+                    alt={offer.title}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  {offer.discountLabel && (
+                    <span className="absolute top-3 right-3 bg-red-500 text-white text-sm font-bold px-3 py-1 rounded-full">
+                      {offer.discountLabel}
+                    </span>
+                  )}
                 </div>
                 <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
                     {offer.title}
                   </h3>
+                  <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                    {offer.description}
+                  </p>
                   <div className="mt-auto">
                     <Button asChild className="w-full sm:w-auto">
-                      <a href={offer.ctaHref}>{offer.ctaText}</a>
+                      <a href={offer.ctaHref}>View offer</a>
                     </Button>
                   </div>
                 </div>
